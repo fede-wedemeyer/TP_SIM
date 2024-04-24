@@ -19,8 +19,7 @@ namespace TP2_WF.Presentacion
         int tipoDist;
         double media;
         double desvEstandard;
-        double limSup;
-        double limInf;
+
 
         public PantallaVisualizacion(decimal[] minMax, int cantIntervalos, int tamMuestra, int tipoDistribucion)
         {
@@ -36,7 +35,7 @@ namespace TP2_WF.Presentacion
             
         }
 
-        public PantallaVisualizacion(decimal[] minMax, int cantIntervalos, int tamMuestra, int tipoDistribucion, double mean, double stDev, double limS, double limI)
+        public PantallaVisualizacion(decimal[] minMax, int cantIntervalos, int tamMuestra, int tipoDistribucion, double mean, double stDev)
         {
             // Inicializa los componentes de la pantalla e instancia
             InitializeComponent();
@@ -49,10 +48,24 @@ namespace TP2_WF.Presentacion
             tipoDist = tipoDistribucion;
             media = mean;
             desvEstandard = stDev;
-            limSup = limS;
-            limInf = limI;
 
         }
+
+        public PantallaVisualizacion(decimal[] minMax, int cantIntervalos, int tamMuestra, int tipoDistribucion, double mean)
+        {
+            // Inicializa los componentes de la pantalla e instancia
+            InitializeComponent();
+
+            csvReader = new CsvReader();
+            MinMax = minMax;
+            CSV = new DataTable();
+            frecObs = new int[cantIntervalos];
+            n = tamMuestra;
+            tipoDist = tipoDistribucion;
+            media = mean;
+
+        }
+
 
 
         private void PantallaVisualizacion_Load(object sender, EventArgs e)
@@ -108,6 +121,7 @@ namespace TP2_WF.Presentacion
             // Se hacen las pruebas de bondad
             Boolean pruebaBondadUniforme = PruebasBondad.ChiCuadradoUniforme(n, frecObs);
             Boolean pruebaBondadNormal = PruebasBondad.ChiCuadradoNormal(n, frecObs, media, desvEstandard, arrayLimSup, anchoIntervalo);
+            Boolean pruebaBondadExponencial = PruebasBondad.ChiCuadradoExponencial(n, frecObs, media, 0, arrayLimSup, anchoIntervalo);
 
 
         }

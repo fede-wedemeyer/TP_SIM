@@ -193,6 +193,10 @@ namespace TP2_WF
 
                     // Se ejecuta el generador
                     minMax = generadorNros.Exponencial_NegativaLambda(tamMuestra, paramLambda);
+
+                    // Se instancia la pantalla y se le envian los datos por parametro
+                    PantallaVisualizacion pantallaVisualizacion = new PantallaVisualizacion(minMax, cantIntervalos, tamMuestra, cbo_selectDist.SelectedIndex, paramLambda);
+                    pantallaVisualizacion.ShowDialog();
                 }
 
                 else
@@ -218,11 +222,12 @@ namespace TP2_WF
 
                     // Se ejecuta el generador
                     minMax = generadorNros.Exponencial_NegativaMedia(tamMuestra, paramMedia);
+
+                    // Se instancia la pantalla y se le envian los datos por parametro
+                    PantallaVisualizacion pantallaVisualizacion = new PantallaVisualizacion(minMax, cantIntervalos, tamMuestra, cbo_selectDist.SelectedIndex, paramMedia);
+                    pantallaVisualizacion.ShowDialog();
                 }
             }
-
-
-            // Se instancia la pantalla y se le envian los datos por parametro
         }
 
         private void rbt_lambda_CheckedChanged(object sender, EventArgs e)
