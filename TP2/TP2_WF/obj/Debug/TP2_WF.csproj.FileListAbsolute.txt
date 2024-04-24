@@ -49,3 +49,19 @@ C:\Users\fedew\Downloads\Simulacion-TPs-UTN-main\Simulacion-TPs-UTN-main\TP2\TP2
 C:\Users\fedew\Downloads\Simulacion-TPs-UTN-main\Simulacion-TPs-UTN-main\TP2\TP2_WF\bin\Debug\MathNet.Numerics.xml
 C:\Users\fedew\Downloads\Simulacion-TPs-UTN-main\Simulacion-TPs-UTN-main\TP2\TP2_WF\bin\Debug\System.ValueTuple.xml
 C:\Users\fedew\Downloads\Simulacion-TPs-UTN-main\Simulacion-TPs-UTN-main\TP2\TP2_WF\obj\Debug\TP2_WF.csproj.CopyComplete
+E:\TP SIM\TP2\TP2_WF\bin\Debug\TP2_WF.exe.config
+E:\TP SIM\TP2\TP2_WF\bin\Debug\TP2_WF.exe
+E:\TP SIM\TP2\TP2_WF\bin\Debug\TP2_WF.pdb
+E:\TP SIM\TP2\TP2_WF\bin\Debug\MathNet.Numerics.dll
+E:\TP SIM\TP2\TP2_WF\bin\Debug\System.ValueTuple.dll
+E:\TP SIM\TP2\TP2_WF\bin\Debug\MathNet.Numerics.xml
+E:\TP SIM\TP2\TP2_WF\bin\Debug\System.ValueTuple.xml
+E:\TP SIM\TP2\TP2_WF\obj\Debug\TP2_WF.csproj.AssemblyReference.cache
+E:\TP SIM\TP2\TP2_WF\obj\Debug\TP2_WF.Presentacion.PantallaVisualizacion.resources
+E:\TP SIM\TP2\TP2_WF\obj\Debug\TP2_WF.PantallaPrincipalGenerador.resources
+E:\TP SIM\TP2\TP2_WF\obj\Debug\TP2_WF.Properties.Resources.resources
+E:\TP SIM\TP2\TP2_WF\obj\Debug\TP2_WF.csproj.GenerateResource.cache
+E:\TP SIM\TP2\TP2_WF\obj\Debug\TP2_WF.csproj.CoreCompileInputs.cache
+E:\TP SIM\TP2\TP2_WF\obj\Debug\TP2_WF.csproj.CopyComplete
+E:\TP SIM\TP2\TP2_WF\obj\Debug\TP2_WF.exe
+E:\TP SIM\TP2\TP2_WF\obj\Debug\TP2_WF.pdb

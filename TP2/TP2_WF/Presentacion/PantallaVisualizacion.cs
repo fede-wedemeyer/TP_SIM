@@ -16,8 +16,13 @@ namespace TP2_WF.Presentacion
         DataTable CSV;
         int[] frecObs;
         int n;
+        int tipoDist;
+        double media;
+        double desvEstandard;
+        double limSup;
+        double limInf;
 
-        public PantallaVisualizacion(decimal[] minMax, int cantIntervalos, int tamMuestra)
+        public PantallaVisualizacion(decimal[] minMax, int cantIntervalos, int tamMuestra, int tipoDistribucion)
         {
             // Inicializa los componentes de la pantalla e instancia
             InitializeComponent();
@@ -27,7 +32,28 @@ namespace TP2_WF.Presentacion
             CSV = new DataTable();
             frecObs = new int[cantIntervalos];
             n = tamMuestra;
+            tipoDist = tipoDistribucion;
+            
         }
+
+        public PantallaVisualizacion(decimal[] minMax, int cantIntervalos, int tamMuestra, int tipoDistribucion, double mean, double stDev, double limS, double limI)
+        {
+            // Inicializa los componentes de la pantalla e instancia
+            InitializeComponent();
+
+            csvReader = new CsvReader();
+            MinMax = minMax;
+            CSV = new DataTable();
+            frecObs = new int[cantIntervalos];
+            n = tamMuestra;
+            tipoDist = tipoDistribucion;
+            media = mean;
+            desvEstandard = stDev;
+            limSup = limS;
+            limInf = limI;
+
+        }
+
 
         private void PantallaVisualizacion_Load(object sender, EventArgs e)
         {
@@ -80,8 +106,9 @@ namespace TP2_WF.Presentacion
 
 
             // Se hacen las pruebas de bondad
-            Boolean pruebaBondad = PruebasBondad.ChiCuadradoUniforme(n, frecObs);
-            Console.WriteLine(pruebaBondad);
+            Boolean pruebaBondadUniforme = PruebasBondad.ChiCuadradoUniforme(n, frecObs);
+            Boolean pruebaBondadNormal = PruebasBondad.ChiCuadradoNormal(n, frecObs, media, desvEstandard, arrayLimSup, anchoIntervalo);
+
 
         }
 

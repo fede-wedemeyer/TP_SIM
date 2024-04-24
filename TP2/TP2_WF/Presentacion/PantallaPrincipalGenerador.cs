@@ -82,6 +82,10 @@ namespace TP2_WF
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+            // Se obtiene la cantidad de intervalos mediante el combo box
+            int cantIntervalos = int.Parse(cbo_selectInterval.Text);
+
             // Se valida que el textBox muestra no este vacio
             if (estaVacio(txt_tamM.Text))
             {
@@ -126,6 +130,10 @@ namespace TP2_WF
                 // Se ejecuta el generador
                 minMax = generadorNros.Uniforme(tamMuestra, paramLimInf, paramLimSup);
 
+                // Generamos la pantalla con la visualización de los datos
+                PantallaVisualizacion pantallaVisualizacion = new PantallaVisualizacion(minMax, cantIntervalos, tamMuestra, cbo_selectDist.SelectedIndex);
+                pantallaVisualizacion.ShowDialog();
+
             }
 
             else if (cbo_selectDist.SelectedIndex == 1)
@@ -136,6 +144,10 @@ namespace TP2_WF
                     MessageBox.Show("No se ingresaron los dos parametros.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+
+                // Convertimos los strings obtenidos del form a double
+                double paramLimInf = Double.Parse(txt_param1.Text);
+                double paramLimSup = Double.Parse(txt_param2.Text);
 
 
                 // Convertimos los strings obtenidos del form a double
@@ -153,6 +165,8 @@ namespace TP2_WF
 
                 // Se ejecuta el generador
                 minMax = generadorNros.Normal_BoxMuller(tamMuestra, paramMedia, paramSD);
+                PantallaVisualizacion pantallaVisualizacion = new PantallaVisualizacion(minMax, cantIntervalos, tamMuestra, cbo_selectDist.SelectedIndex, paramMedia, paramSD);
+                pantallaVisualizacion.ShowDialog();
             }
 
             else
@@ -207,12 +221,8 @@ namespace TP2_WF
                 }
             }
 
-            // Se obtiene la cantidad de intervalos mediante el combo box
-            int cantIntervalos = int.Parse(cbo_selectInterval.Text);
 
             // Se instancia la pantalla y se le envian los datos por parametro
-            PantallaVisualizacion pantallaVisualizacion = new PantallaVisualizacion(minMax, cantIntervalos, tamMuestra);
-            pantallaVisualizacion.ShowDialog();
         }
 
         private void rbt_lambda_CheckedChanged(object sender, EventArgs e)
