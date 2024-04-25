@@ -121,7 +121,7 @@ namespace TP2_WF.Presentacion
             // Se hacen las pruebas de bondad
             Boolean pruebaBondadUniforme = PruebasBondad.ChiCuadradoUniforme(n, frecObs);
             Boolean pruebaBondadNormal = PruebasBondad.ChiCuadradoNormal(n, frecObs, media, desvEstandard, arrayLimSup, anchoIntervalo);
-            Boolean pruebaBondadExponencial = PruebasBondad.ChiCuadradoExponencial(n, frecObs, media, 0, arrayLimSup, anchoIntervalo);
+            PruebasBondad.pruebasExponencial(n, media, frecObs, arrayLimSup, anchoIntervalo);
 
 
         }
