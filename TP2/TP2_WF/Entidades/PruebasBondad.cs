@@ -12,73 +12,7 @@ namespace TP2_WF.Entidades
 {
     class PruebasBondad
     {
-        //public static Boolean ChiCuadradoUniforme(int n, int[] frecObs)
-        //{
-
-
-        //    int cantIntervalos = frecObs.Length;
-        //    double expectedFrequency = n / cantIntervalos;
-
-
-        //    double chiCuadrado = 0;
-        //    foreach (var frequency in frecObs)
-        //    {
-        //        chiCuadrado += Math.Pow(frequency - expectedFrequency, 2) / expectedFrequency;
-        //    }
-
-        //    int gradosDeLibertad = cantIntervalos - 1;
-
-        //    ChiSquared chiSquaredDist = new ChiSquared(gradosDeLibertad);
-        //    double pValue = 1.0 - chiSquaredDist.CumulativeDistribution(chiCuadrado);
-
-
-        //    double nivelDeSignificancia = 0.05;
-        //    return pValue < nivelDeSignificancia;
-        //}
-
-        //public static Boolean ChiCuadradoNormal(int n, int[] frecObs, double media, double desvEstandard, decimal[] arrayLimSup, decimal anchoIntervalo)
-        //{
-
-        //    // double marcaClase = (limSup + limInf / 2.0);
-        //    int cantIntervalos = frecObs.Length;
-
-        //    // double zScore = (marcaClase - media) / desvEstandard;
-
-        //    double[] arrayLimInf = new double[arrayLimSup.Length];
-
-        //    for (int i = 0; i < arrayLimSup.Length; i++)
-        //    {
-        //        double limInf = (Decimal.ToDouble(arrayLimSup[i])) - Decimal.ToDouble(anchoIntervalo);
-        //        arrayLimInf[i] = limInf;
-        //    };
-
-        //    double[] arrayExpectedFreq = new double[frecObs.Length];
-        //    double chiCuadrado = 0;
-
-        //    for (int i = 0; i < frecObs.Length; i++)
-        //    {
-        //        Normal normalDistribution = new Normal(media, desvEstandard);
-        //        double probability = normalDistribution.CumulativeDistribution(Decimal.ToDouble(arrayLimSup[i])) - normalDistribution.CumulativeDistribution(arrayLimInf[i]);
-
-        //        double expectedFrequency = probability * n;
-        //        arrayExpectedFreq[i] = expectedFrequency;
-
-        //        chiCuadrado += Math.Pow(frecObs[i] - expectedFrequency, 2) / expectedFrequency;
-
-        //    }
-
-        //    int gradosDeLibertad = cantIntervalos - 1;
-
-        //    ChiSquared chiSquaredDist = new ChiSquared(gradosDeLibertad);
-        //    double pValue = 1.0 - chiSquaredDist.CumulativeDistribution(chiCuadrado);
-
-
-        //    double nivelDeSignificancia = 0.05;
-        //    return true;
-        //}
-
-        // reescrito
-
+        // Prueba de bondad uniforme
         public static (List<double>, double, double) pruebasUniforme(int n, int[] frecObs)
         {
             // obtenemos las frecuencias esperadas para cada intervalo
@@ -92,7 +26,6 @@ namespace TP2_WF.Entidades
 
                 //Console.WriteLine(frecEsp[i]);
                 //Console.WriteLine(frecObs[i]);
-
 
             }
 
@@ -109,15 +42,19 @@ namespace TP2_WF.Entidades
 
         }
 
+        // Pruebas de bondad para distribución normal
         public static (List<double>, double, double) pruebasNormal(int n, double media, int[] frecObs, double desviacionEstandar, decimal[] arrayLimSup, decimal anchoIntervalo)
         {
             List<double> frecEsp = new List<double>();
             Normal normalDist = new Normal(media, desviacionEstandar);
 
+            // Obtenemos la lista de frecuencias esperadas
             for (int i = 0; i < arrayLimSup.Length; i++)
             {
+                // Obtenemos los límites inferiores del intervalo restandole al superior el ancho del intervalo
                 double limSup = Decimal.ToDouble(arrayLimSup[i]);
                 double limInf = limSup - Decimal.ToDouble(anchoIntervalo);
+                // Cálculo para la probabilidad del intervalo
                 double probabilidadIntervalo = normalDist.CumulativeDistribution(limSup) - normalDist.CumulativeDistribution(limInf);
                 frecEsp.Add(probabilidadIntervalo * n);
 
@@ -147,8 +84,11 @@ namespace TP2_WF.Entidades
 
             for (int i = 0; i < arrayLimSup.Length; i++)
             {
+                // Obtenemos los límites inferiores del intervalo restandole al superior el ancho del intervalo
                 double limSup = Decimal.ToDouble(arrayLimSup[i]);
                 double limInf = limSup - Decimal.ToDouble(anchoIntervalo);
+
+                // Se llama a la función que calcula los valores de las frecuencias esperadas y se agregan a la lista de frecEsp
                 double frec = frecEspIntervaloExp(lambda, limInf, limSup, n);
                 frecEsp.Add(frec);
 
@@ -184,6 +124,7 @@ namespace TP2_WF.Entidades
             return (expLambdaA - expLambdaB) * n;
         }
 
+        // Toma las frecuencias esperadas y observadas y calcula el valor de Chi con la fórmula (O-E)^2 / E
         private static double calcularChiCuadrado(List<int> frecObs, List<double> frecEsp)
         {
             double chi = 0.0;
@@ -195,6 +136,7 @@ namespace TP2_WF.Entidades
             return chi;
         }
 
+        // Calcula el KS haciendo |F.E.R - F.O.R|
         private static double calcularKS(List<int> frecObs, List<double> frecEsp, int n)
         {
 
