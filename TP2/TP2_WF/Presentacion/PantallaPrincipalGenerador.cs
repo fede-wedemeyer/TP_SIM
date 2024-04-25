@@ -28,6 +28,7 @@ namespace TP2_WF
             if (cbo_selectDist.SelectedIndex == 0)
             {
                 // Que se habilita e inhabilita al seleccionar Uniforme
+                lbl_param2.Show();
                 lbl_param1.Text = "Límite Inferior del intervalo";
                 lbl_param2.Text = "Límite Superior del intervalo";
                 txt_param1.Enabled = true;
@@ -41,6 +42,7 @@ namespace TP2_WF
             else if (cbo_selectDist.SelectedIndex == 1)
             {
                 // Que se habilita e inhabilita al seleccionar Normal
+                lbl_param2.Show();
                 lbl_param1.Text = "Media de la muestra";
                 lbl_param2.Text = "Desviación Estandar de la muestra";
                 txt_param1.Enabled = true;
@@ -55,7 +57,7 @@ namespace TP2_WF
             {
                 // Que se habilita e inhabilita al seleccionar Exponencial Negativa
                 lbl_param1.Text = "Lambda de la muestra";
-                lbl_param2.Text = "Media de la muestra";
+                lbl_param2.Hide();
                 gbx_radioButtons.Show();
                 txt_param1.Enabled = true;
                 txt_param2.Enabled = false;

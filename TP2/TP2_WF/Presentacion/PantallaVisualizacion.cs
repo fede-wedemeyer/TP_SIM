@@ -19,6 +19,7 @@ namespace TP2_WF.Presentacion
         int tipoDist;
         double media;
         double desvEstandard;
+        double lambda;
 
 
         public PantallaVisualizacion(decimal[] minMax, int cantIntervalos, int tamMuestra, int tipoDistribucion)
@@ -51,7 +52,7 @@ namespace TP2_WF.Presentacion
 
         }
 
-        public PantallaVisualizacion(decimal[] minMax, int cantIntervalos, int tamMuestra, int tipoDistribucion, double mean)
+        public PantallaVisualizacion(decimal[] minMax, int cantIntervalos, int tamMuestra, int tipoDistribucion, double lamb)
         {
             // Inicializa los componentes de la pantalla e instancia
             InitializeComponent();
@@ -62,7 +63,7 @@ namespace TP2_WF.Presentacion
             frecObs = new int[cantIntervalos];
             n = tamMuestra;
             tipoDist = tipoDistribucion;
-            media = mean;
+            lambda = lamb;
 
         }
 
@@ -70,6 +71,7 @@ namespace TP2_WF.Presentacion
 
         private void PantallaVisualizacion_Load(object sender, EventArgs e)
         {
+
             // Para el eje x:
             decimal[] arrayLimSup = new decimal[frecObs.Length];
 
@@ -107,6 +109,18 @@ namespace TP2_WF.Presentacion
 
             };
 
+            // Se ejecuta las prueba de bondad para la distribución seleccionada
+            List<double> frecEsp;
+            double chi;
+            double ks;
+
+            if (tipoDist == 0) { (frecEsp, chi, ks) = PruebasBondad.pruebasUniforme(n, frecObs); }
+
+            else if (tipoDist == 1) { (frecEsp, chi, ks) = PruebasBondad.pruebasNormal(n, media, frecObs, desvEstandard, arrayLimSup, anchoIntervalo); }
+
+            else { (frecEsp, chi, ks) = PruebasBondad.pruebasExponencial(n, lambda, frecObs, arrayLimSup, anchoIntervalo); }
+
+
             // Configurar etiquetas del eje X
             chart1.ChartAreas[0].AxisX.Interval = 1;
             chart1.ChartAreas[0].AxisX.Title = "Intervalos";
@@ -115,22 +129,21 @@ namespace TP2_WF.Presentacion
             chart1.ChartAreas[0].AxisY.Title = "Frecuencias Observadas";
 
             // Se genera la tabla de frecObs
-            this.cargarTablaFrecObs(arrayLimSup, anchoIntervalo);
+            this.cargarTablaFrecObs(arrayLimSup, anchoIntervalo, frecEsp, chi, ks);
 
+            // Se cargan los valores de KS y Chi
 
-            // Se hacen las pruebas de bondad
-            Boolean pruebaBondadUniforme = PruebasBondad.ChiCuadradoUniforme(n, frecObs);
-            Boolean pruebaBondadNormal = PruebasBondad.ChiCuadradoNormal(n, frecObs, media, desvEstandard, arrayLimSup, anchoIntervalo);
-            Boolean pruebaBondadExponencial = PruebasBondad.ChiCuadradoExponencial(n, frecObs, media, 0, arrayLimSup, anchoIntervalo);
-
+            label3.Text = chi.ToString();
+            label4.Text = ks.ToString();
 
         }
 
-        private void cargarTablaFrecObs(decimal[] arrayLimSup, decimal anchoIntervalo)
+        private void cargarTablaFrecObs(decimal[] arrayLimSup, decimal anchoIntervalo, List<double> frecEsp, double chi, double ks)
         {
             DataTable dt = new DataTable();
             dt.Columns.Add("Intervalo");
             dt.Columns.Add("Frecuencia Observada");
+            dt.Columns.Add("Frecuencia Esperada");
 
             // Agrega los numeros a la tabla y obtiene la frecuencia observada de los intervalos
             decimal limInf;
@@ -139,7 +152,7 @@ namespace TP2_WF.Presentacion
             {
                 limInf = arrayLimSup[i] - anchoIntervalo;
                 string intervalo = $"{limInf} <= x < {arrayLimSup[i]}";
-                dt.Rows.Add(intervalo, frecObs[i]);
+                dt.Rows.Add(intervalo, frecObs[i], frecEsp[i]);
             };
 
             gdw_frecObs.DataSource = dt;
@@ -147,10 +160,9 @@ namespace TP2_WF.Presentacion
             {
                 columna.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             }
+
+           
         }
-
-
-
     }
 }
 
