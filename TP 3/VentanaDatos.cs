@@ -25,7 +25,7 @@ namespace TP_3
         double costoVariable;
         double costoVentas;
 
-        public VentanaDatos(double cantSemanas,double ausentesCero, double ausentesUno, double ausentesDos, double ausentesTres, double ausentesCuatro, double ausentesCinco, int cantEmpleados, double costoEmpleados, double costoVariable, double costoVentas)
+        public VentanaDatos(double cantSemanas, double ausentesCero, double ausentesUno, double ausentesDos, double ausentesTres, double ausentesCuatro, double ausentesCinco, int cantEmpleados, double costoEmpleados, double costoVariable, double costoVentas)
         {
             InitializeComponent();
             this.cantSemanas = cantSemanas;
@@ -41,14 +41,15 @@ namespace TP_3
             this.costoVentas = costoVentas;
         }
         public VentanaDatos()
-        { 
-            InitializeComponent(); 
+        {
+            InitializeComponent();
         }
 
         public void simular()
         {
             Datos datos = MonteCarlo.simularAusentismo(cantSemanas, ausentesCero, ausentesUno, ausentesDos, ausentesTres, ausentesCuatro, ausentesCinco, cantEmpleadosTotales, costoEmpleados, costoVariable);
             PopulateDataGridView(datos);
+
         }
 
 
@@ -85,7 +86,7 @@ namespace TP_3
                 row["Random"] = datos.randoms[i];
                 row["Ausentes"] = datos.ausencias[i];
                 row["Cantidad de empleados"] = cantidadEmpleados;
-                if (cantidadEmpleados < 20) 
+                if (cantidadEmpleados < 20)
                 {
                     row["¿Fabrica abierta?"] = "No";
                     row["Costos variables"] = 0;
@@ -93,18 +94,18 @@ namespace TP_3
                     row["Costo total"] = cantEmpleadosTotales * costoEmpleados;
                     row["Utilidad"] = (cantEmpleadosTotales * costoEmpleados) * -1;
                     utilidadAcumulada += cantEmpleadosTotales * costoEmpleados * -1;
-                    
+
                 }
 
-                else 
-                {   
+                else
+                {
                     row["¿Fabrica abierta?"] = "Si";
                     row["Costos variables"] = costoVariable;
                     row["Costo de empleados"] = costoDeEmpleadosDelDia;
                     row["Costo total"] = costoVariable + costoDeEmpleadosDelDia;
                     row["Utilidad"] = utilidad;
                     utilidadAcumulada += utilidad;
-                    
+
                 }
                 row["Utilidad acumulada"] = utilidadAcumulada;
 
@@ -112,15 +113,78 @@ namespace TP_3
 
                 // Add the populated row to the DataTable
                 table.Rows.Add(row);
+
             }
 
             dataGridView1.DataSource = table;
+            SetearLabels(utilidadAcumulada);
 
         }
 
-            private void VentanaDatos_FormClosed(object sender, FormClosedEventArgs e)
+        public void crearDistribucionDeFrecuencias() 
+        {
+            DataTable table = new DataTable();
+
+            table.Columns.Add("Cantidad de obreros ausentes", typeof(string));
+            table.Columns.Add("Porcentaje de días ausentes en 22 semanas", typeof(double));
+            table.Columns.Add("Frecuencia acumulada", typeof(double));
+
+
+            DataRow row1 = table.NewRow();
+            row1["Cantidad de obreros ausentes"] = "0";
+            row1["Porcentaje de días ausentes en 22 semanas"] = ausentesCero;
+            row1["Frecuencia acumulada"] = ausentesCero;
+            table.Rows.Add(row1);
+
+            DataRow row2 = table.NewRow();
+            row2["Cantidad de obreros ausentes"] = "1";
+            row2["Porcentaje de días ausentes en 22 semanas"] = ausentesUno;
+            row2["Frecuencia acumulada"] = ausentesCero + ausentesUno;
+            table.Rows.Add(row2);
+
+            DataRow row3 = table.NewRow();
+            row3["Cantidad de obreros ausentes"] = "2";
+            row3["Porcentaje de días ausentes en 22 semanas"] = ausentesDos;
+            row3["Frecuencia acumulada"] = ausentesCero + ausentesUno + ausentesDos;
+            table.Rows.Add(row3);
+
+            DataRow row4 = table.NewRow();
+            row4["Cantidad de obreros ausentes"] = "3";
+            row4["Porcentaje de días ausentes en 22 semanas"] = ausentesTres;
+            row4["Frecuencia acumulada"] = ausentesCero + ausentesUno + ausentesDos + ausentesTres;
+            table.Rows.Add(row4);
+
+            DataRow row5 = table.NewRow();
+            row5["Cantidad de obreros ausentes"] = "4";
+            row5["Porcentaje de días ausentes en 22 semanas"] = ausentesCuatro;
+            row5["Frecuencia acumulada"] = ausentesCero + ausentesUno + ausentesDos + ausentesTres + ausentesCuatro;
+            table.Rows.Add(row5);
+
+            DataRow row6 = table.NewRow();
+            row6["Cantidad de obreros ausentes"] = "5";
+            row6["Porcentaje de días ausentes en 22 semanas"] = ausentesCinco;
+            row6["Frecuencia acumulada"] = ausentesCero + ausentesUno + ausentesDos + ausentesTres + ausentesCuatro + ausentesCinco;
+            table.Rows.Add(row6);
+
+
+            dataGridView2.DataSource = table;
+        }
+
+        private void SetearLabels(double utilidadFinal) 
+        { 
+            cantSemLbl.Text = cantSemanas.ToString();
+            cantEmplLbl.Text = cantEmpleadosTotales.ToString();
+            costoEmplLbl.Text = "$ " +costoEmpleados.ToString();
+            costosVariablesLbl.Text = "$" + costoVariable.ToString();
+            totalVentasLbl.Text = "$" + costoVentas.ToString();
+            utilidadAcumuladaLbl.Text = "$ " + utilidadFinal.ToString();
+
+        }
+
+        private void VentanaDatos_FormClosed(object sender, FormClosedEventArgs e)
         {
             ((Form)sender).Dispose();
         }
+
     }
 }

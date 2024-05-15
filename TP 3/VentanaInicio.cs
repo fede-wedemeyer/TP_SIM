@@ -129,14 +129,14 @@ namespace TP_3
             if (sumaPorcentaje != 100) { MessageBox.Show("La suma de los porcentajes debe ser igual a 100", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             else
             {
-                this.Visible = false;
 
                 VentanaDatos simulacion = new VentanaDatos(double.Parse(cantSemanas.Text), double.Parse(ausentesCero.Text), double.Parse(ausenteUno.Text), double.Parse(ausenteDos.Text),
                     double.Parse(ausenteTres.Text), double.Parse(ausenteCuatro.Text), double.Parse(ausenteCinco.Text), int.Parse(cantObreros.Text),
                     double.Parse(costoObrero.Text), double.Parse(costoVariable.Text), double.Parse(precioVenta.Text));
 
                 simulacion.simular();
-                simulacion.Show();
+                simulacion.crearDistribucionDeFrecuencias();
+                simulacion.ShowDialog();
 
             }
         }
