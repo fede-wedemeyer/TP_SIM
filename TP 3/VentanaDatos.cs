@@ -49,7 +49,7 @@ namespace TP_3
         {
             Datos datos = MonteCarlo.simularAusentismo(cantSemanas, ausentesCero, ausentesUno, ausentesDos, ausentesTres, ausentesCuatro, ausentesCinco, cantEmpleadosTotales, costoEmpleados, costoVariable);
             PopulateDataGridView(datos);
-
+            
         }
 
 
@@ -126,44 +126,53 @@ namespace TP_3
             DataTable table = new DataTable();
 
             table.Columns.Add("Cantidad de obreros ausentes", typeof(string));
-            table.Columns.Add("Porcentaje de días ausentes en 22 semanas", typeof(double));
-            table.Columns.Add("Frecuencia acumulada", typeof(double));
+            table.Columns.Add($"Frecuencia de ausencia en días en {cantSemanas} semanas", typeof(int));
+            table.Columns.Add("Frecuencia en %", typeof(double));
+            table.Columns.Add("Frecuencia acumulada en %", typeof(double));
+
+            double cantidadDias = cantSemanas * 5;
 
 
             DataRow row1 = table.NewRow();
             row1["Cantidad de obreros ausentes"] = "0";
-            row1["Porcentaje de días ausentes en 22 semanas"] = ausentesCero;
-            row1["Frecuencia acumulada"] = ausentesCero;
+            row1[$"Frecuencia de ausencia en días en {cantSemanas} semanas"] = (int)Math.Round(cantidadDias * (ausentesCero/100));
+            row1["Frecuencia en %"] = ausentesCero;
+            row1["Frecuencia acumulada en %"] = ausentesCero;
             table.Rows.Add(row1);
 
             DataRow row2 = table.NewRow();
             row2["Cantidad de obreros ausentes"] = "1";
-            row2["Porcentaje de días ausentes en 22 semanas"] = ausentesUno;
-            row2["Frecuencia acumulada"] = ausentesCero + ausentesUno;
+            row2[$"Frecuencia de ausencia en días en {cantSemanas} semanas"] = (int)Math.Round(cantidadDias * (ausentesUno/100));
+            row2["Frecuencia en %"] = ausentesUno;
+            row2["Frecuencia acumulada en %"] = ausentesCero + ausentesUno;
             table.Rows.Add(row2);
 
             DataRow row3 = table.NewRow();
             row3["Cantidad de obreros ausentes"] = "2";
-            row3["Porcentaje de días ausentes en 22 semanas"] = ausentesDos;
-            row3["Frecuencia acumulada"] = ausentesCero + ausentesUno + ausentesDos;
+            row3[$"Frecuencia de ausencia en días en {cantSemanas} semanas"] = (int)Math.Round(cantidadDias * (ausentesDos/100));
+            row3["Frecuencia en %"] = ausentesDos;
+            row3["Frecuencia acumulada en %"] = ausentesCero + ausentesUno + ausentesDos;
             table.Rows.Add(row3);
 
             DataRow row4 = table.NewRow();
             row4["Cantidad de obreros ausentes"] = "3";
-            row4["Porcentaje de días ausentes en 22 semanas"] = ausentesTres;
-            row4["Frecuencia acumulada"] = ausentesCero + ausentesUno + ausentesDos + ausentesTres;
+            row4[$"Frecuencia de ausencia en días en {cantSemanas} semanas"] = (int)Math.Round(cantidadDias * (ausentesTres/100));
+            row4["Frecuencia en %"] = ausentesTres;
+            row4["Frecuencia acumulada en %"] = ausentesCero + ausentesUno + ausentesDos + ausentesTres;
             table.Rows.Add(row4);
 
             DataRow row5 = table.NewRow();
             row5["Cantidad de obreros ausentes"] = "4";
-            row5["Porcentaje de días ausentes en 22 semanas"] = ausentesCuatro;
-            row5["Frecuencia acumulada"] = ausentesCero + ausentesUno + ausentesDos + ausentesTres + ausentesCuatro;
+            row5[$"Frecuencia de ausencia en días en {cantSemanas} semanas"] = (int)Math.Round(cantidadDias * (ausentesCuatro/100));
+            row5["Frecuencia en %"] = ausentesCuatro;
+            row5["Frecuencia acumulada en %"] = ausentesCero + ausentesUno + ausentesDos + ausentesTres + ausentesCuatro;
             table.Rows.Add(row5);
 
             DataRow row6 = table.NewRow();
             row6["Cantidad de obreros ausentes"] = "5";
-            row6["Porcentaje de días ausentes en 22 semanas"] = ausentesCinco;
-            row6["Frecuencia acumulada"] = ausentesCero + ausentesUno + ausentesDos + ausentesTres + ausentesCuatro + ausentesCinco;
+            row6[$"Frecuencia de ausencia en días en {cantSemanas} semanas"] = (int)Math.Round(cantidadDias * (ausentesCinco/100));
+            row6["Frecuencia en %"] = ausentesCinco;
+            row6["Frecuencia acumulada en %"] = ausentesCero + ausentesUno + ausentesDos + ausentesTres + ausentesCuatro + ausentesCinco;
             table.Rows.Add(row6);
 
 
