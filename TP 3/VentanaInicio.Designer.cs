@@ -45,6 +45,8 @@
             label3 = new Label();
             label2 = new Label();
             groupBox2 = new GroupBox();
+            precioVenta = new TextBox();
+            precioVentaLbl = new Label();
             costoVariable = new TextBox();
             costoVariableLbl = new Label();
             costoObrero = new TextBox();
@@ -53,8 +55,8 @@
             cantObreros = new TextBox();
             cantSemanas = new TextBox();
             simularBtn = new Button();
-            precioVentaLbl = new Label();
-            precioVenta = new TextBox();
+            empleadosNecesarios = new Label();
+            emplMinimos = new TextBox();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             SuspendLayout();
@@ -104,7 +106,7 @@
             groupBox1.Controls.Add(label2);
             groupBox1.Location = new Point(12, 125);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(149, 188);
+            groupBox1.Size = new Size(149, 202);
             groupBox1.TabIndex = 3;
             groupBox1.TabStop = false;
             groupBox1.Text = "Probabilidades (en %)";
@@ -219,6 +221,8 @@
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(emplMinimos);
+            groupBox2.Controls.Add(empleadosNecesarios);
             groupBox2.Controls.Add(precioVenta);
             groupBox2.Controls.Add(precioVentaLbl);
             groupBox2.Controls.Add(costoVariable);
@@ -229,10 +233,29 @@
             groupBox2.Controls.Add(cantObreros);
             groupBox2.Location = new Point(189, 125);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(195, 141);
+            groupBox2.Size = new Size(195, 202);
             groupBox2.TabIndex = 4;
             groupBox2.TabStop = false;
             groupBox2.Text = "Parámetros";
+            // 
+            // precioVenta
+            // 
+            precioVenta.Location = new Point(129, 106);
+            precioVenta.Name = "precioVenta";
+            precioVenta.PlaceholderText = "$";
+            precioVenta.Size = new Size(52, 23);
+            precioVenta.TabIndex = 7;
+            precioVenta.Text = "4000";
+            precioVenta.KeyPress += precioVenta_KeyPress;
+            // 
+            // precioVentaLbl
+            // 
+            precioVentaLbl.AutoSize = true;
+            precioVentaLbl.Location = new Point(6, 109);
+            precioVentaLbl.Name = "precioVentaLbl";
+            precioVentaLbl.Size = new Size(91, 15);
+            precioVentaLbl.TabIndex = 6;
+            precioVentaLbl.Text = "Precio de Venta:";
             // 
             // costoVariable
             // 
@@ -301,7 +324,7 @@
             // 
             // simularBtn
             // 
-            simularBtn.Location = new Point(189, 272);
+            simularBtn.Location = new Point(100, 333);
             simularBtn.Name = "simularBtn";
             simularBtn.Size = new Size(195, 40);
             simularBtn.TabIndex = 17;
@@ -309,30 +332,29 @@
             simularBtn.UseVisualStyleBackColor = true;
             simularBtn.Click += simularBtn_Click;
             // 
-            // precioVentaLbl
+            // empleadosNecesarios
             // 
-            precioVentaLbl.AutoSize = true;
-            precioVentaLbl.Location = new Point(6, 109);
-            precioVentaLbl.Name = "precioVentaLbl";
-            precioVentaLbl.Size = new Size(91, 15);
-            precioVentaLbl.TabIndex = 6;
-            precioVentaLbl.Text = "Precio de Venta:";
+            empleadosNecesarios.AutoSize = true;
+            empleadosNecesarios.Location = new Point(6, 139);
+            empleadosNecesarios.Name = "empleadosNecesarios";
+            empleadosNecesarios.Size = new Size(118, 15);
+            empleadosNecesarios.TabIndex = 8;
+            empleadosNecesarios.Text = "Empleados mínimos:";
             // 
-            // precioVenta
+            // emplMinimos
             // 
-            precioVenta.Location = new Point(129, 106);
-            precioVenta.Name = "precioVenta";
-            precioVenta.PlaceholderText = "$";
-            precioVenta.Size = new Size(52, 23);
-            precioVenta.TabIndex = 7;
-            precioVenta.Text = "4000";
-            precioVenta.KeyPress += precioVenta_KeyPress;
+            emplMinimos.Location = new Point(129, 136);
+            emplMinimos.Name = "emplMinimos";
+            emplMinimos.PlaceholderText = "$";
+            emplMinimos.Size = new Size(52, 23);
+            emplMinimos.TabIndex = 9;
+            emplMinimos.Text = "20";
             // 
             // VentanaInicio
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(407, 323);
+            ClientSize = new Size(398, 385);
             Controls.Add(simularBtn);
             Controls.Add(cantSemanas);
             Controls.Add(groupBox2);
@@ -380,5 +402,7 @@
         private Button simularBtn;
         private TextBox precioVenta;
         private Label precioVentaLbl;
+        private TextBox emplMinimos;
+        private Label empleadosNecesarios;
     }
 }

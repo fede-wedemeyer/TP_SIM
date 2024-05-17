@@ -44,6 +44,8 @@
             utilidadAcumuladaLbl = new Label();
             label7 = new Label();
             label8 = new Label();
+            label9 = new Label();
+            emplMinimosLbl = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             SuspendLayout();
@@ -88,7 +90,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(474, 115);
+            label3.Location = new Point(474, 113);
             label3.Name = "label3";
             label3.Size = new Size(144, 15);
             label3.TabIndex = 4;
@@ -98,7 +100,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(474, 147);
+            label4.Location = new Point(474, 143);
             label4.Name = "label4";
             label4.Size = new Size(98, 15);
             label4.TabIndex = 5;
@@ -108,7 +110,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(474, 179);
+            label5.Location = new Point(474, 170);
             label5.Name = "label5";
             label5.Size = new Size(135, 15);
             label5.TabIndex = 6;
@@ -145,7 +147,7 @@
             // costoEmplLbl
             // 
             costoEmplLbl.AutoSize = true;
-            costoEmplLbl.Location = new Point(624, 115);
+            costoEmplLbl.Location = new Point(617, 113);
             costoEmplLbl.Name = "costoEmplLbl";
             costoEmplLbl.Size = new Size(38, 15);
             costoEmplLbl.TabIndex = 10;
@@ -154,7 +156,7 @@
             // costosVariablesLbl
             // 
             costosVariablesLbl.AutoSize = true;
-            costosVariablesLbl.Location = new Point(578, 147);
+            costosVariablesLbl.Location = new Point(580, 143);
             costosVariablesLbl.Name = "costosVariablesLbl";
             costosVariablesLbl.Size = new Size(38, 15);
             costosVariablesLbl.TabIndex = 11;
@@ -163,7 +165,7 @@
             // totalVentasLbl
             // 
             totalVentasLbl.AutoSize = true;
-            totalVentasLbl.Location = new Point(615, 179);
+            totalVentasLbl.Location = new Point(615, 170);
             totalVentasLbl.Name = "totalVentasLbl";
             totalVentasLbl.Size = new Size(38, 15);
             totalVentasLbl.TabIndex = 12;
@@ -199,11 +201,32 @@
             label8.TabIndex = 15;
             label8.Text = "Simulación:";
             // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label9.Location = new Point(474, 199);
+            label9.Name = "label9";
+            label9.Size = new Size(130, 15);
+            label9.TabIndex = 16;
+            label9.Text = "Empleados necesarios:";
+            // 
+            // emplMinimosLbl
+            // 
+            emplMinimosLbl.AutoSize = true;
+            emplMinimosLbl.Location = new Point(610, 199);
+            emplMinimosLbl.Name = "emplMinimosLbl";
+            emplMinimosLbl.Size = new Size(38, 15);
+            emplMinimosLbl.TabIndex = 17;
+            emplMinimosLbl.Text = "label7";
+            // 
             // VentanaDatos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1158, 596);
+            Controls.Add(emplMinimosLbl);
+            Controls.Add(label9);
             Controls.Add(label8);
             Controls.Add(label7);
             Controls.Add(utilidadAcumuladaLbl);
@@ -221,7 +244,7 @@
             Controls.Add(dataGridView2);
             Controls.Add(dataGridView1);
             Name = "VentanaDatos";
-            Text = "VentanaDatos";
+            Text = "Simulación";
             FormClosed += VentanaDatos_FormClosed;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
@@ -247,5 +270,7 @@
         private Label utilidadAcumuladaLbl;
         private Label label7;
         private Label label8;
+        private Label label9;
+        private Label emplMinimosLbl;
     }
 }

@@ -24,8 +24,9 @@ namespace TP_3
         double costoEmpleados;
         double costoVariable;
         double costoVentas;
+        double empleadosMinimos;
 
-        public VentanaDatos(double cantSemanas, double ausentesCero, double ausentesUno, double ausentesDos, double ausentesTres, double ausentesCuatro, double ausentesCinco, int cantEmpleados, double costoEmpleados, double costoVariable, double costoVentas)
+        public VentanaDatos(double cantSemanas, double ausentesCero, double ausentesUno, double ausentesDos, double ausentesTres, double ausentesCuatro, double ausentesCinco, int cantEmpleados, double costoEmpleados, double costoVariable, double costoVentas, double empleadosMinimos)
         {
             InitializeComponent();
             this.cantSemanas = cantSemanas;
@@ -39,6 +40,7 @@ namespace TP_3
             this.costoEmpleados = costoEmpleados;
             this.costoVariable = costoVariable;
             this.costoVentas = costoVentas;
+            this.empleadosMinimos = empleadosMinimos;
         }
         public VentanaDatos()
         {
@@ -86,7 +88,7 @@ namespace TP_3
                 row["Random"] = datos.randoms[i];
                 row["Ausentes"] = datos.ausencias[i];
                 row["Cantidad de empleados"] = cantidadEmpleados;
-                if (cantidadEmpleados < 20)
+                if (cantidadEmpleados < empleadosMinimos)
                 {
                     row["¿Fabrica abierta?"] = "No";
                     row["Costos variables"] = 0;
@@ -188,6 +190,7 @@ namespace TP_3
             costosVariablesLbl.Text = "$" + costoVariable.ToString();
             totalVentasLbl.Text = "$" + costoVentas.ToString();
             utilidadAcumuladaLbl.Text = "$ " + utilidadFinal.ToString();
+            emplMinimosLbl.Text = empleadosMinimos.ToString();
 
         }
 
