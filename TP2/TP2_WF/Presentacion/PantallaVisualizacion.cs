@@ -33,7 +33,7 @@ namespace TP2_WF.Presentacion
             frecObs = new int[cantIntervalos];
             n = tamMuestra;
             tipoDist = tipoDistribucion;
-            
+
         }
 
         public PantallaVisualizacion(decimal[] minMax, int cantIntervalos, int tamMuestra, int tipoDistribucion, double mean, double stDev)
@@ -101,7 +101,7 @@ namespace TP2_WF.Presentacion
             // Se agregan las frecObs al grafico
             for (int i = 0; i < arrayLimSup.Length; i++)
             {
-                string intervalo = $"[{arrayLimSup[i] - anchoIntervalo},{arrayLimSup[i]})";
+                string intervalo = $"[{Math.Round(arrayLimSup[i] - anchoIntervalo, 3)} - {arrayLimSup[i]}]";
                 DataPoint dp = new DataPoint();
                 dp.AxisLabel = intervalo;
                 dp.YValues = new double[] { frecObs[i] };
@@ -147,12 +147,16 @@ namespace TP2_WF.Presentacion
 
             // Agrega los numeros a la tabla y obtiene la frecuencia observada de los intervalos
             decimal limInf;
+            calcularIntervalosTabla(arrayLimSup, anchoIntervalo, frecEsp);
 
-            for (int i = 0; i< arrayLimSup.Length;i++)
+
+            for (int i = 0; i < arrayLimSup.Length; i++)
             {
+
                 limInf = arrayLimSup[i] - anchoIntervalo;
                 string intervalo = $"{limInf} <= x < {arrayLimSup[i]}";
                 dt.Rows.Add(intervalo, frecObs[i], frecEsp[i]);
+
             };
 
             gdw_frecObs.DataSource = dt;
@@ -161,7 +165,62 @@ namespace TP2_WF.Presentacion
                 columna.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             }
 
-           
+
+        }
+
+        private void calcularIntervalosTabla(decimal[] arrayLimSup, decimal anchoIntervalo, List<double> frecEsp)
+        {
+            List<decimal> arrayLimInf = new List<decimal>();
+
+            for (int i = 0; i < arrayLimSup.Length; i++)
+            {
+                arrayLimInf.Add(arrayLimSup[i] - anchoIntervalo);
+
+            }
+
+            List<decimal> newArrayLimSup = new List<decimal>();
+            List<decimal> newArrayLimInf = new List<decimal>();
+            List<double> newFrecEsp = new List<double>();
+            List<double> newFrecObs = new List<double>();
+
+
+            int newIndex = 0;
+            for (int i = 0; i < arrayLimSup.Length; i++)
+            {
+                if (frecEsp[newIndex] < 5)
+                {
+                    newIndex++;
+                    newArrayLimInf.Add(arrayLimInf[i]);
+                    newArrayLimSup.Add(arrayLimSup[i]);
+                    newFrecEsp.Add(frecEsp[i]);
+                    newFrecObs.Add(frecObs[i]);
+
+                    while (newFrecEsp[i] < 5)
+                    {
+
+                        newArrayLimSup[i] += anchoIntervalo;
+                        newFrecEsp[i] += frecEsp[newIndex];
+                        newFrecObs[i] += frecObs[newIndex];
+                        newIndex++;
+
+                    }
+
+                }
+
+                else
+                {
+                    
+                    newArrayLimInf.Add(arrayLimInf[newIndex]);
+                    newArrayLimSup.Add(arrayLimSup[newIndex]);
+                    newFrecEsp.Add(frecEsp[newIndex]);
+                    newFrecObs.Add(frecObs[newIndex]);
+                    newIndex++;
+
+                }
+
+            }
+
+            for (int i = 0; i < newArrayLimSup.Count; i++) { Console.WriteLine(newArrayLimInf[i] + " // " + newArrayLimSup[i] + " // " + newFrecObs[i] + " // " + newFrecEsp[i]); }
         }
     }
 }
