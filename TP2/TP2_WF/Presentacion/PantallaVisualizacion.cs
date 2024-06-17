@@ -178,49 +178,88 @@ namespace TP2_WF.Presentacion
 
             }
 
-            List<decimal> newArrayLimSup = new List<decimal>();
             List<decimal> newArrayLimInf = new List<decimal>();
-            List<double> newFrecEsp = new List<double>();
-            List<double> newFrecObs = new List<double>();
+            List<decimal> newArrayLimSup = new List<decimal>();
+            List<decimal> newObservedFrequency = new List<decimal>();
 
-
-            int newIndex = 0;
-            for (int i = 0; i < arrayLimSup.Length; i++)
+            // Process the observed frequencies
+            for (int i = 0; i < frecObs.Length; i++)
             {
-                if (frecEsp[newIndex] < 5)
+                decimal currentLowerLimit = arrayLimInf[i];
+                decimal currentUpperLimit = arrayLimSup[i];
+                decimal currentFrequency = frecObs[i];
+
+                // Check if the current frequency is less than 5
+                if (currentFrequency < 5)
                 {
-                    newIndex++;
-                    newArrayLimInf.Add(arrayLimInf[i]);
-                    newArrayLimSup.Add(arrayLimSup[i]);
-                    newFrecEsp.Add(frecEsp[i]);
-                    newFrecObs.Add(frecObs[i]);
-
-                    while (newFrecEsp[i] < 5)
+                    // Find the index of the next interval
+                    int nextIndex = i + 1;
+                    while (nextIndex < arrayLimInf.Count && frecObs[nextIndex] < 5)
                     {
-
-                        newArrayLimSup[i] += anchoIntervalo;
-                        newFrecEsp[i] += frecEsp[newIndex];
-                        newFrecObs[i] += frecObs[newIndex];
-                        newIndex++;
-
+                        nextIndex++;
                     }
 
-                }
+                    // Merge intervals and sum frequencies
+                    if (nextIndex < arrayLimInf.Count)
+                    {
+                        decimal nextLowerLimit = arrayLimInf[nextIndex];
+                        decimal nextUpperLimit = arrayLimSup[nextIndex];
+                        decimal nextFrequency = frecObs[nextIndex];
 
+                        // Adjust the upper limit of the current interval
+                        currentUpperLimit = Math.Min(currentUpperLimit, nextLowerLimit);
+
+                        // Sum the frequencies
+                        currentFrequency += nextFrequency;
+
+                        // Add the adjusted interval to the new arrays
+                        newObservedFrequency.Add(currentFrequency);
+                        newArrayLimInf.Add(currentLowerLimit);
+                        newArrayLimSup.Add(currentUpperLimit);
+                    }
+                    else
+                    {
+                        // If there's no next interval, just copy the current interval
+                        newObservedFrequency.Add(currentFrequency);
+                        newArrayLimInf.Add(currentLowerLimit);
+                        newArrayLimSup.Add(currentUpperLimit);
+                    }
+                }
                 else
                 {
-                    
-                    newArrayLimInf.Add(arrayLimInf[newIndex]);
-                    newArrayLimSup.Add(arrayLimSup[newIndex]);
-                    newFrecEsp.Add(frecEsp[newIndex]);
-                    newFrecObs.Add(frecObs[newIndex]);
-                    newIndex++;
-
+                    // If the frequency is not less than 5, copy the current interval
+                    newObservedFrequency.Add(currentFrequency);
+                    newArrayLimInf.Add(currentLowerLimit);
+                    newArrayLimSup.Add(currentUpperLimit);
                 }
-
             }
+            // Convert the new lists to arrays if needed
+            decimal[] newArrayLimInfArray = newArrayLimInf.ToArray();
+            decimal[] newArrayLimSupArray = newArrayLimSup.ToArray();
+            decimal[] newObservedFrequencyArray = newObservedFrequency.ToArray();
 
-            for (int i = 0; i < newArrayLimSup.Count; i++) { Console.WriteLine(newArrayLimInf[i] + " // " + newArrayLimSup[i] + " // " + newFrecObs[i] + " // " + newFrecEsp[i]); }
+            // Print the new arrays
+            Console.WriteLine("New arrayLimInf:");
+            foreach (var item in newArrayLimInfArray)
+            {
+                Console.Write(item + " ");
+            }
+            Console.WriteLine("\nNew arrayLimSup:");
+            foreach (var item in newArrayLimSupArray)
+            {
+                Console.Write(item + " ");
+            }
+            Console.WriteLine("\nNew observedFrequency:");
+            foreach (var item in newObservedFrequencyArray)
+            {
+                Console.Write(item + " ");
+
+
+
+
+
+                // for (int i = 0; i < newArrayLimSup.Count; i++) { Console.WriteLine(newArrayLimInf[i] + " // " + newArrayLimSup[i] + " // " + newFrecObs[i] + " // " + newFrecEsp[i]); }
+            }
         }
     }
 }
