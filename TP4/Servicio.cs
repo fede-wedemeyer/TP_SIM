@@ -8,12 +8,12 @@ namespace TP4
 {
     public class Servicio
     {
-        private string tipo { get; set; } 
+        private TipoServicio tipo { get; set; } 
         private List<Servidor> servidores { get; set; }
         private double media { get; set; }
         private List<Estudiante> cola  {get; set; }
 
-        public Servicio(string tipo, int nroServidores, double media)
+        public Servicio(TipoServicio tipo, int nroServidores, double media)
         {
             this.servidores = new List<Servidor>();
             this.cola = new List<Estudiante>();
@@ -24,7 +24,7 @@ namespace TP4
             {
                 this.servidores[i] = new Servidor();
                 this.servidores[i].Id = i + 1;
-                this.servidores[i].Estado = "libre";
+                this.servidores[i].Estado = true;
             }
 
         }

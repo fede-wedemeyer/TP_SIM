@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TP4
 {
-    public class VectorDeEstado
+    public class VectorDeEstado2
     {
         public int N { get; set; }
         public string evento { get; set; }
@@ -36,7 +36,7 @@ namespace TP4
 
 
 
-        public bool[] servidoresDevolucion { get; set; } = [true, true];
+        public bool[] servidoresDevolucion { get; set; } = [true];
         public double[] finAtencionDevolucion { get; set; } = new double[2];
         public double RNDFinAtencionDevolucion { get; set; }
         public double tiempoAtencionDevolucion { get; set; }

@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace TP4
 {
-    public class Simulacion
+    public class Simulacion2
     {
-        public VectorDeEstado vectorDeEstado { get; set; }
+        public VectorDeEstado2 vectorDeEstado { get; set; }
         int cantidadSimulaciones { get; set; }
 
 
-        public Simulacion()
+        public Simulacion2()
         {
-            vectorDeEstado = new VectorDeEstado();
+            vectorDeEstado = new VectorDeEstado2();
         }
 
         public DataTable simular(int cantIteraciones, double mediaPrestamo, double mediaDevolucion, double mediaConsulta,
@@ -827,9 +827,7 @@ namespace TP4
                 TruncateDecimal(vectorDeEstado.RNDFinAtencionDevolucion, 2),
                 TruncateDecimal(vectorDeEstado.tiempoAtencionDevolucion, 2),
                 TruncateDecimal(vectorDeEstado.finAtencionDevolucion[0], 2),
-                TruncateDecimal(vectorDeEstado.finAtencionDevolucion[1], 2),
                 vectorDeEstado.servidoresDevolucion[0] ? "Libre" : "Ocupado",
-                vectorDeEstado.servidoresDevolucion[1] ? "Libre" : "Ocupado",
                 TruncateDecimal(vectorDeEstado.colaDevolucion.Count, 2),
 
                 TruncateDecimal(vectorDeEstado.RNDFinAtencionConsulta, 2),
@@ -1096,6 +1094,8 @@ namespace TP4
             return resultados;
 
         }
+
+
 
     }
 

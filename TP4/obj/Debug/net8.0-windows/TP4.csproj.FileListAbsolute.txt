@@ -1,0 +1,35 @@
+C:\Users\fedew\Desktop\TP4\bin\Debug\net8.0-windows\TP4.exe
+C:\Users\fedew\Desktop\TP4\bin\Debug\net8.0-windows\TP4.deps.json
+C:\Users\fedew\Desktop\TP4\bin\Debug\net8.0-windows\TP4.runtimeconfig.json
+C:\Users\fedew\Desktop\TP4\bin\Debug\net8.0-windows\TP4.dll
+C:\Users\fedew\Desktop\TP4\bin\Debug\net8.0-windows\TP4.pdb
+C:\Users\fedew\Desktop\TP4\obj\Debug\net8.0-windows\TP4.VentanaDatos.resources
+C:\Users\fedew\Desktop\TP4\obj\Debug\net8.0-windows\TP4.VentanaInicial.resources
+C:\Users\fedew\Desktop\TP4\obj\Debug\net8.0-windows\TP4.csproj.GenerateResource.cache
+C:\Users\fedew\Desktop\TP4\obj\Debug\net8.0-windows\TP4.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\fedew\Desktop\TP4\obj\Debug\net8.0-windows\TP4.AssemblyInfoInputs.cache
+C:\Users\fedew\Desktop\TP4\obj\Debug\net8.0-windows\TP4.AssemblyInfo.cs
+C:\Users\fedew\Desktop\TP4\obj\Debug\net8.0-windows\TP4.csproj.CoreCompileInputs.cache
+C:\Users\fedew\Desktop\TP4\obj\Debug\net8.0-windows\TP4.dll
+C:\Users\fedew\Desktop\TP4\obj\Debug\net8.0-windows\refint\TP4.dll
+C:\Users\fedew\Desktop\TP4\obj\Debug\net8.0-windows\TP4.pdb
+C:\Users\fedew\Desktop\TP4\obj\Debug\net8.0-windows\TP4.genruntimeconfig.cache
+C:\Users\fedew\Desktop\TP4\obj\Debug\net8.0-windows\ref\TP4.dll
+C:\Users\fedew\Desktop\TP4 ultimo\obj\Debug\net8.0-windows\TP4.VentanaDatos.resources
+C:\Users\fedew\Desktop\TP4 ultimo\obj\Debug\net8.0-windows\TP4.VentanaInicial.resources
+C:\Users\fedew\Desktop\TP4 ultimo\obj\Debug\net8.0-windows\TP4.csproj.GenerateResource.cache
+C:\Users\fedew\Desktop\TP4 ultimo\obj\Debug\net8.0-windows\TP4.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\fedew\Desktop\TP4 ultimo\obj\Debug\net8.0-windows\TP4.AssemblyInfoInputs.cache
+C:\Users\fedew\Desktop\TP4 ultimo\obj\Debug\net8.0-windows\TP4.AssemblyInfo.cs
+C:\Users\fedew\Desktop\TP4 ultimo\obj\Debug\net8.0-windows\TP4.csproj.CoreCompileInputs.cache
+C:\Users\fedew\Desktop\TP4 ultimo\obj\Debug\net8.0-windows\TP4.dll
+C:\Users\fedew\Desktop\TP4 ultimo\obj\Debug\net8.0-windows\refint\TP4.dll
+C:\Users\fedew\Desktop\TP4 ultimo\obj\Debug\net8.0-windows\TP4.pdb
+C:\Users\fedew\Desktop\TP4 ultimo\bin\Debug\net8.0-windows\TP4.exe
+C:\Users\fedew\Desktop\TP4 ultimo\bin\Debug\net8.0-windows\TP4.deps.json
+C:\Users\fedew\Desktop\TP4 ultimo\bin\Debug\net8.0-windows\TP4.runtimeconfig.json
+C:\Users\fedew\Desktop\TP4 ultimo\bin\Debug\net8.0-windows\TP4.dll
+C:\Users\fedew\Desktop\TP4 ultimo\bin\Debug\net8.0-windows\TP4.pdb
+C:\Users\fedew\Desktop\TP4 ultimo\obj\Debug\net8.0-windows\TP4.genruntimeconfig.cache
+C:\Users\fedew\Desktop\TP4 ultimo\obj\Debug\net8.0-windows\ref\TP4.dll
+C:\Users\fedew\Desktop\TP4 ultimo\obj\Debug\net8.0-windows\TP4.VentanaNuevaSimulacion.resources

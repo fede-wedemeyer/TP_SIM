@@ -1,0 +1,207 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\arras\\Downloads\\TP4\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{198C40F9-A03A-4FE6-971E-1BA299238E54}|TP4.csproj|c:\\users\\arras\\downloads\\tp4\\vectordeestado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{198C40F9-A03A-4FE6-971E-1BA299238E54}|TP4.csproj|solutionrelative:vectordeestado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{198C40F9-A03A-4FE6-971E-1BA299238E54}|TP4.csproj|c:\\users\\arras\\downloads\\tp4\\simulacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{198C40F9-A03A-4FE6-971E-1BA299238E54}|TP4.csproj|solutionrelative:simulacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{198C40F9-A03A-4FE6-971E-1BA299238E54}|TP4.csproj|c:\\users\\arras\\downloads\\tp4\\evento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{198C40F9-A03A-4FE6-971E-1BA299238E54}|TP4.csproj|solutionrelative:evento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{198C40F9-A03A-4FE6-971E-1BA299238E54}|TP4.csproj|c:\\users\\arras\\downloads\\tp4\\estudiante.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{198C40F9-A03A-4FE6-971E-1BA299238E54}|TP4.csproj|solutionrelative:estudiante.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{198C40F9-A03A-4FE6-971E-1BA299238E54}|TP4.csproj|c:\\users\\arras\\downloads\\tp4\\ventanainicial.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{198C40F9-A03A-4FE6-971E-1BA299238E54}|TP4.csproj|solutionrelative:ventanainicial.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{198C40F9-A03A-4FE6-971E-1BA299238E54}|TP4.csproj|c:\\users\\arras\\downloads\\tp4\\servidor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{198C40F9-A03A-4FE6-971E-1BA299238E54}|TP4.csproj|solutionrelative:servidor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{198C40F9-A03A-4FE6-971E-1BA299238E54}|TP4.csproj|C:\\Users\\arras\\Downloads\\TP4\\ventanainicial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{198C40F9-A03A-4FE6-971E-1BA299238E54}|TP4.csproj|solutionrelative:ventanainicial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{198C40F9-A03A-4FE6-971E-1BA299238E54}|TP4.csproj|c:\\users\\arras\\downloads\\tp4\\servicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{198C40F9-A03A-4FE6-971E-1BA299238E54}|TP4.csproj|solutionrelative:servicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{198C40F9-A03A-4FE6-971E-1BA299238E54}|TP4.csproj|c:\\users\\arras\\downloads\\tp4\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{198C40F9-A03A-4FE6-971E-1BA299238E54}|TP4.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{198C40F9-A03A-4FE6-971E-1BA299238E54}|TP4.csproj|c:\\users\\arras\\downloads\\tp4\\ventanainicial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{198C40F9-A03A-4FE6-971E-1BA299238E54}|TP4.csproj|solutionrelative:ventanainicial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 14,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{131369f2-062d-44a2-8671-91ff31efb4f4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Evento.cs",
+              "DocumentMoniker": "C:\\Users\\arras\\Downloads\\TP4\\Evento.cs",
+              "RelativeDocumentMoniker": "Evento.cs",
+              "ToolTip": "C:\\Users\\arras\\Downloads\\TP4\\Evento.cs",
+              "RelativeToolTip": "Evento.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAAAIwCwAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T15:05:12.443Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Simulacion.cs",
+              "DocumentMoniker": "C:\\Users\\arras\\Downloads\\TP4\\Simulacion.cs",
+              "RelativeDocumentMoniker": "Simulacion.cs",
+              "ToolTip": "C:\\Users\\arras\\Downloads\\TP4\\Simulacion.cs",
+              "RelativeToolTip": "Simulacion.cs",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAUwMIDAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T14:30:36.376Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "VentanaInicial.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\arras\\Downloads\\TP4\\VentanaInicial.Designer.cs",
+              "RelativeDocumentMoniker": "VentanaInicial.Designer.cs",
+              "ToolTip": "C:\\Users\\arras\\Downloads\\TP4\\VentanaInicial.Designer.cs",
+              "RelativeToolTip": "VentanaInicial.Designer.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T14:30:36.492Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Estudiante.cs",
+              "DocumentMoniker": "C:\\Users\\arras\\Downloads\\TP4\\Estudiante.cs",
+              "RelativeDocumentMoniker": "Estudiante.cs",
+              "ToolTip": "C:\\Users\\arras\\Downloads\\TP4\\Estudiante.cs",
+              "RelativeToolTip": "Estudiante.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T14:30:36.496Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "VentanaInicial.cs",
+              "DocumentMoniker": "C:\\Users\\arras\\Downloads\\TP4\\VentanaInicial.cs",
+              "RelativeDocumentMoniker": "VentanaInicial.cs",
+              "ToolTip": "C:\\Users\\arras\\Downloads\\TP4\\VentanaInicial.cs",
+              "RelativeToolTip": "VentanaInicial.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T14:30:36.502Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\arras\\Downloads\\TP4\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\arras\\Downloads\\TP4\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T14:30:36.508Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Servidor.cs",
+              "DocumentMoniker": "C:\\Users\\arras\\Downloads\\TP4\\Servidor.cs",
+              "RelativeDocumentMoniker": "Servidor.cs",
+              "ToolTip": "C:\\Users\\arras\\Downloads\\TP4\\Servidor.cs",
+              "RelativeToolTip": "Servidor.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T14:30:36.515Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Servicio.cs",
+              "DocumentMoniker": "C:\\Users\\arras\\Downloads\\TP4\\Servicio.cs",
+              "RelativeDocumentMoniker": "Servicio.cs",
+              "ToolTip": "C:\\Users\\arras\\Downloads\\TP4\\Servicio.cs",
+              "RelativeToolTip": "Servicio.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T14:30:36.52Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "VectorDeEstado.cs",
+              "DocumentMoniker": "C:\\Users\\arras\\Downloads\\TP4\\VectorDeEstado.cs",
+              "RelativeDocumentMoniker": "VectorDeEstado.cs",
+              "ToolTip": "C:\\Users\\arras\\Downloads\\TP4\\VectorDeEstado.cs",
+              "RelativeToolTip": "VectorDeEstado.cs",
+              "ViewState": "AQIAAEYAAAAAAAAAAAAgwE0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T14:30:36.525Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "VentanaInicial.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\arras\\Downloads\\TP4\\VentanaInicial.cs",
+              "RelativeDocumentMoniker": "VentanaInicial.cs",
+              "ToolTip": "C:\\Users\\arras\\Downloads\\TP_SIM-main (1)\\TP_SIM-main\\TP4\\VentanaInicial.cs [Design]",
+              "RelativeToolTip": "..\\TP_SIM-main (1)\\TP_SIM-main\\TP4\\VentanaInicial.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T14:30:37.808Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
