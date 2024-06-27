@@ -710,7 +710,6 @@ namespace TP4
                         break;
                     }
                 }
-
                 for (int j = 0; j < vectorDeEstado.servidoresConsulta.Length; j++)
                 {
                     if (vectorDeEstado.servidoresConsulta[j]) { break; }
@@ -720,7 +719,6 @@ namespace TP4
                         break;
                     }
                 }
-
                 for (int j = 0; j < vectorDeEstado.servidoresPC.Length; j++)
                 {
                     if (vectorDeEstado.servidoresPC[j]) { break; }
@@ -730,7 +728,6 @@ namespace TP4
                         break;
                     }
                 }
-
                 for (int j = 0; j < vectorDeEstado.servidoresInfoGeneral.Length; j++)
                 {
                     if (vectorDeEstado.servidoresInfoGeneral[j]) { break; }
@@ -745,7 +742,7 @@ namespace TP4
                 else
                 {
                     vectorDeEstado.acTiempoServicioGestionarMembresia += (vectorDeEstado.reloj - vectorDeEstado.relojAnterior);
-                }
+                }  
             }
             cargarDataGrid(cantIteraciones, dt);
 
