@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\fedew\\Desktop\\TP5\\TP4.csproj": {}
+    "E:\\TP SIM\\TP5\\TP4.csproj": {}
   },
   "projects": {
-    "C:\\Users\\fedew\\Desktop\\TP5\\TP4.csproj": {
+    "E:\\TP SIM\\TP5\\TP4.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\fedew\\Desktop\\TP5\\TP4.csproj",
+        "projectUniqueName": "E:\\TP SIM\\TP5\\TP4.csproj",
         "projectName": "TP4",
-        "projectPath": "C:\\Users\\fedew\\Desktop\\TP5\\TP4.csproj",
+        "projectPath": "E:\\TP SIM\\TP5\\TP4.csproj",
         "packagesPath": "C:\\Users\\fedew\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\fedew\\Desktop\\TP5\\obj\\",
+        "outputPath": "E:\\TP SIM\\TP5\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\fedew\\AppData\\Roaming\\NuGet\\NuGet.Config",

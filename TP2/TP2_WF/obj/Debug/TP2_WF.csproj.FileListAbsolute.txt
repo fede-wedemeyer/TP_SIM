@@ -65,3 +65,35 @@ E:\TP SIM\TP2\TP2_WF\obj\Debug\TP2_WF.csproj.CoreCompileInputs.cache
 E:\TP SIM\TP2\TP2_WF\obj\Debug\TP2_WF.csproj.CopyComplete
 E:\TP SIM\TP2\TP2_WF\obj\Debug\TP2_WF.exe
 E:\TP SIM\TP2\TP2_WF\obj\Debug\TP2_WF.pdb
+C:\Users\arras\Downloads\TP_SIM-main\TP2\TP2_WF\bin\Debug\TP2_WF.exe.config
+C:\Users\arras\Downloads\TP_SIM-main\TP2\TP2_WF\bin\Debug\TP2_WF.exe
+C:\Users\arras\Downloads\TP_SIM-main\TP2\TP2_WF\bin\Debug\TP2_WF.pdb
+C:\Users\arras\Downloads\TP_SIM-main\TP2\TP2_WF\bin\Debug\MathNet.Numerics.dll
+C:\Users\arras\Downloads\TP_SIM-main\TP2\TP2_WF\bin\Debug\System.ValueTuple.dll
+C:\Users\arras\Downloads\TP_SIM-main\TP2\TP2_WF\bin\Debug\MathNet.Numerics.xml
+C:\Users\arras\Downloads\TP_SIM-main\TP2\TP2_WF\bin\Debug\System.ValueTuple.xml
+C:\Users\arras\Downloads\TP_SIM-main\TP2\TP2_WF\obj\Debug\TP2_WF.csproj.AssemblyReference.cache
+C:\Users\arras\Downloads\TP_SIM-main\TP2\TP2_WF\obj\Debug\TP2_WF.Presentacion.PantallaVisualizacion.resources
+C:\Users\arras\Downloads\TP_SIM-main\TP2\TP2_WF\obj\Debug\TP2_WF.PantallaPrincipalGenerador.resources
+C:\Users\arras\Downloads\TP_SIM-main\TP2\TP2_WF\obj\Debug\TP2_WF.Properties.Resources.resources
+C:\Users\arras\Downloads\TP_SIM-main\TP2\TP2_WF\obj\Debug\TP2_WF.csproj.GenerateResource.cache
+C:\Users\arras\Downloads\TP_SIM-main\TP2\TP2_WF\obj\Debug\TP2_WF.csproj.CoreCompileInputs.cache
+C:\Users\arras\Downloads\TP_SIM-main\TP2\TP2_WF\obj\Debug\TP2_WF.csproj.Up2Date
+C:\Users\arras\Downloads\TP_SIM-main\TP2\TP2_WF\obj\Debug\TP2_WF.exe
+C:\Users\arras\Downloads\TP_SIM-main\TP2\TP2_WF\obj\Debug\TP2_WF.pdb
+C:\Users\fedew\Desktop\TP2\TP2_WF\bin\Debug\TP2_WF.exe.config
+C:\Users\fedew\Desktop\TP2\TP2_WF\bin\Debug\TP2_WF.exe
+C:\Users\fedew\Desktop\TP2\TP2_WF\bin\Debug\TP2_WF.pdb
+C:\Users\fedew\Desktop\TP2\TP2_WF\bin\Debug\MathNet.Numerics.dll
+C:\Users\fedew\Desktop\TP2\TP2_WF\bin\Debug\System.ValueTuple.dll
+C:\Users\fedew\Desktop\TP2\TP2_WF\bin\Debug\MathNet.Numerics.xml
+C:\Users\fedew\Desktop\TP2\TP2_WF\bin\Debug\System.ValueTuple.xml
+C:\Users\fedew\Desktop\TP2\TP2_WF\obj\Debug\TP2_WF.csproj.AssemblyReference.cache
+C:\Users\fedew\Desktop\TP2\TP2_WF\obj\Debug\TP2_WF.Presentacion.PantallaVisualizacion.resources
+C:\Users\fedew\Desktop\TP2\TP2_WF\obj\Debug\TP2_WF.PantallaPrincipalGenerador.resources
+C:\Users\fedew\Desktop\TP2\TP2_WF\obj\Debug\TP2_WF.Properties.Resources.resources
+C:\Users\fedew\Desktop\TP2\TP2_WF\obj\Debug\TP2_WF.csproj.GenerateResource.cache
+C:\Users\fedew\Desktop\TP2\TP2_WF\obj\Debug\TP2_WF.csproj.CoreCompileInputs.cache
+C:\Users\fedew\Desktop\TP2\TP2_WF\obj\Debug\TP2_WF.exe
+C:\Users\fedew\Desktop\TP2\TP2_WF\obj\Debug\TP2_WF.pdb
+C:\Users\fedew\Desktop\TP2\TP2_WF\obj\Debug\TP2_WF.csproj.Up2Date

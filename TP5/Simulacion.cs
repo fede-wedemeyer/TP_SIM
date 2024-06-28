@@ -1256,16 +1256,16 @@ namespace TP4
             dt.Columns.Add("Acumulador tiempo ocupado (Gestionar membresía)");
 
             dt.Columns.Add("Mayor numero de gente en cola");
-            dt.Columns.Add("Estudiante 1");
-            dt.Columns.Add("Estudiante 2");
-            dt.Columns.Add("Estudiante 3");
-            dt.Columns.Add("Estudiante 4");
-            dt.Columns.Add("Estudiante 5");
-            dt.Columns.Add("Estudiante 6");
-            dt.Columns.Add("Estudiante 7");
-            dt.Columns.Add("Estudiante 8");
-            dt.Columns.Add("Estudiante 9");
-            dt.Columns.Add("Estudiante N");
+            dt.Columns.Add("Estudiante 1 (ID, Estado)");
+            dt.Columns.Add("Estudiante 2 (ID, Estado)");
+            dt.Columns.Add("Estudiante 3 (ID, Estado)");
+            dt.Columns.Add("Estudiante 4 (ID, Estado)");
+            dt.Columns.Add("Estudiante 5 (ID, Estado)");
+            dt.Columns.Add("Estudiante 6 (ID, Estado)");
+            dt.Columns.Add("Estudiante 7 (ID, Estado)");
+            dt.Columns.Add("Estudiante 8 (ID, Estado)");
+            dt.Columns.Add("Estudiante 9 (ID, Estado)");
+            dt.Columns.Add("Estudiante N (ID, Estado)");
 
             return dt;
         }
@@ -1389,16 +1389,16 @@ namespace TP4
             dt.Columns.Add("Acumulador tiempo ocupado (Gestionar membresía)");
 
             dt.Columns.Add("Mayor numero de gente en cola");
-            dt.Columns.Add("Estudiante 1");
-            dt.Columns.Add("Estudiante 2");
-            dt.Columns.Add("Estudiante 3");
-            dt.Columns.Add("Estudiante 4");
-            dt.Columns.Add("Estudiante 5");
-            dt.Columns.Add("Estudiante 6");
-            dt.Columns.Add("Estudiante 7");
-            dt.Columns.Add("Estudiante 8");
-            dt.Columns.Add("Estudiante 9");
-            dt.Columns.Add("Estudiante N");
+            dt.Columns.Add("Estudiante 1 (ID, Estado)");
+            dt.Columns.Add("Estudiante 2 (ID, Estado)");
+            dt.Columns.Add("Estudiante 3 (ID, Estado)");
+            dt.Columns.Add("Estudiante 4 (ID, Estado)");
+            dt.Columns.Add("Estudiante 5 (ID, Estado)");
+            dt.Columns.Add("Estudiante 6 (ID, Estado)");
+            dt.Columns.Add("Estudiante 7 (ID, Estado)");
+            dt.Columns.Add("Estudiante 8 (ID, Estado)");
+            dt.Columns.Add("Estudiante 9 (ID, Estado)");
+            dt.Columns.Add("Estudiante N (ID, Estado)");
 
             return dt;
         }

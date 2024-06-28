@@ -1,0 +1,171 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\fedew\\Desktop\\TP2\\TP2_WF\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9574EE9D-7731-47D1-9B39-3CCB4260A37B}|TP2_WF.csproj|c:\\users\\fedew\\desktop\\tp2\\tp2_wf\\presentacion\\pantallavisualizacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9574EE9D-7731-47D1-9B39-3CCB4260A37B}|TP2_WF.csproj|solutionrelative:presentacion\\pantallavisualizacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9574EE9D-7731-47D1-9B39-3CCB4260A37B}|TP2_WF.csproj|C:\\Users\\fedew\\Desktop\\TP2\\TP2_WF\\entidades\\pruebasbondad.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9574EE9D-7731-47D1-9B39-3CCB4260A37B}|TP2_WF.csproj|solutionrelative:entidades\\pruebasbondad.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9574EE9D-7731-47D1-9B39-3CCB4260A37B}|TP2_WF.csproj|C:\\Users\\fedew\\Desktop\\TP2\\TP2_WF\\presentacion\\pantallaprincipalgenerador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9574EE9D-7731-47D1-9B39-3CCB4260A37B}|TP2_WF.csproj|solutionrelative:presentacion\\pantallaprincipalgenerador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9574EE9D-7731-47D1-9B39-3CCB4260A37B}|TP2_WF.csproj|C:\\Users\\fedew\\Desktop\\TP2\\TP2_WF\\entidades\\csvreader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9574EE9D-7731-47D1-9B39-3CCB4260A37B}|TP2_WF.csproj|solutionrelative:entidades\\csvreader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9574EE9D-7731-47D1-9B39-3CCB4260A37B}|TP2_WF.csproj|C:\\Users\\fedew\\Desktop\\TP2\\TP2_WF\\entidades\\generadornros.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9574EE9D-7731-47D1-9B39-3CCB4260A37B}|TP2_WF.csproj|solutionrelative:entidades\\generadornros.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9574EE9D-7731-47D1-9B39-3CCB4260A37B}|TP2_WF.csproj|C:\\Users\\fedew\\Desktop\\TP2\\TP2_WF\\presentacion\\pantallaprincipalgenerador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{9574EE9D-7731-47D1-9B39-3CCB4260A37B}|TP2_WF.csproj|solutionrelative:presentacion\\pantallaprincipalgenerador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9574EE9D-7731-47D1-9B39-3CCB4260A37B}|TP2_WF.csproj|C:\\Users\\fedew\\Desktop\\TP2\\TP2_WF\\presentacion\\pantallavisualizacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{9574EE9D-7731-47D1-9B39-3CCB4260A37B}|TP2_WF.csproj|solutionrelative:presentacion\\pantallavisualizacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9574EE9D-7731-47D1-9B39-3CCB4260A37B}|TP2_WF.csproj|C:\\Users\\fedew\\Desktop\\TP2\\TP2_WF\\entidades\\csvwriter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9574EE9D-7731-47D1-9B39-3CCB4260A37B}|TP2_WF.csproj|solutionrelative:entidades\\csvwriter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 11,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{131369f2-062d-44a2-8671-91ff31efb4f4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PruebasBondad.cs",
+              "DocumentMoniker": "C:\\Users\\fedew\\Desktop\\TP2\\TP2_WF\\Entidades\\PruebasBondad.cs",
+              "RelativeDocumentMoniker": "Entidades\\PruebasBondad.cs",
+              "ToolTip": "C:\\Users\\fedew\\Desktop\\TP2\\TP2_WF\\Entidades\\PruebasBondad.cs",
+              "RelativeToolTip": "Entidades\\PruebasBondad.cs",
+              "ViewState": "AQIAAFQAAAAAAAAAAAAqwG8AAAB6AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-04T23:10:03.434Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "GeneradorNros.cs",
+              "DocumentMoniker": "C:\\Users\\fedew\\Desktop\\TP2\\TP2_WF\\Entidades\\GeneradorNros.cs",
+              "RelativeDocumentMoniker": "Entidades\\GeneradorNros.cs",
+              "ToolTip": "C:\\Users\\fedew\\Desktop\\TP2\\TP2_WF\\Entidades\\GeneradorNros.cs",
+              "RelativeToolTip": "Entidades\\GeneradorNros.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAANEAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-04T23:10:03.519Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "CsvWriter.cs",
+              "DocumentMoniker": "C:\\Users\\fedew\\Desktop\\TP2\\TP2_WF\\Entidades\\CsvWriter.cs",
+              "RelativeDocumentMoniker": "Entidades\\CsvWriter.cs",
+              "ToolTip": "C:\\Users\\fedew\\Desktop\\TP2\\TP2_WF\\Entidades\\CsvWriter.cs",
+              "RelativeToolTip": "Entidades\\CsvWriter.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-04T23:10:03.52Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CsvReader.cs",
+              "DocumentMoniker": "C:\\Users\\fedew\\Desktop\\TP2\\TP2_WF\\Entidades\\CsvReader.cs",
+              "RelativeDocumentMoniker": "Entidades\\CsvReader.cs",
+              "ToolTip": "C:\\Users\\fedew\\Desktop\\TP2\\TP2_WF\\Entidades\\CsvReader.cs",
+              "RelativeToolTip": "Entidades\\CsvReader.cs",
+              "ViewState": "AQIAADIAAAAAAAAAAAAhwB4AAABSAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-04T23:10:03.521Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PantallaPrincipalGenerador.cs",
+              "DocumentMoniker": "C:\\Users\\fedew\\Desktop\\TP2\\TP2_WF\\Presentacion\\PantallaPrincipalGenerador.cs",
+              "RelativeDocumentMoniker": "Presentacion\\PantallaPrincipalGenerador.cs",
+              "ToolTip": "C:\\Users\\fedew\\Desktop\\TP2\\TP2_WF\\Presentacion\\PantallaPrincipalGenerador.cs",
+              "RelativeToolTip": "Presentacion\\PantallaPrincipalGenerador.cs",
+              "ViewState": "AQIAAMEAAAAAAAAAAAAkwKcAAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-04T23:10:03.523Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PantallaVisualizacion.cs",
+              "DocumentMoniker": "C:\\Users\\fedew\\Desktop\\TP2\\TP2_WF\\Presentacion\\PantallaVisualizacion.cs",
+              "RelativeDocumentMoniker": "Presentacion\\PantallaVisualizacion.cs",
+              "ToolTip": "C:\\Users\\fedew\\Desktop\\TP2\\TP2_WF\\Presentacion\\PantallaVisualizacion.cs",
+              "RelativeToolTip": "Presentacion\\PantallaVisualizacion.cs",
+              "ViewState": "AQIAAJUAAAAAAAAAAAAswKMAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-04T23:10:03.781Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "PantallaPrincipalGenerador.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\fedew\\Desktop\\TP2\\TP2_WF\\Presentacion\\PantallaPrincipalGenerador.cs",
+              "RelativeDocumentMoniker": "Presentacion\\PantallaPrincipalGenerador.cs",
+              "ToolTip": "C:\\Users\\arras\\Downloads\\TP_SIM-main\\TP2\\TP2_WF\\Presentacion\\PantallaPrincipalGenerador.cs [Design]",
+              "RelativeToolTip": "..\\..\\..\\..\\arras\\Downloads\\TP_SIM-main\\TP2\\TP2_WF\\Presentacion\\PantallaPrincipalGenerador.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-04T23:10:03.936Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PantallaVisualizacion.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\fedew\\Desktop\\TP2\\TP2_WF\\Presentacion\\PantallaVisualizacion.cs",
+              "RelativeDocumentMoniker": "Presentacion\\PantallaVisualizacion.cs",
+              "ToolTip": "E:\\TP SIM\\TP2\\TP2_WF\\Presentacion\\PantallaVisualizacion.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-06-04T23:10:03.938Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

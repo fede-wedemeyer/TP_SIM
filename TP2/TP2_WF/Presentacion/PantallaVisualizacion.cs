@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using TP2_WF.Entidades;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Data.Common;
+using System.Linq;
 
 namespace TP2_WF.Presentacion
 {
@@ -82,6 +83,9 @@ namespace TP2_WF.Presentacion
             csvReader.LoadCsvData(CSV, frecObs, MinMax, arrayLimSup);
             gdw_dataSet.DataSource = CSV;
 
+            List<decimal> listLimSup = arrayLimSup.ToList(); // LO convertimos a lista PORQUE ES MEJOR
+            List<int> frecObsList = frecObs.ToList();
+
             // Estetico Columnas Tabla
             foreach (DataGridViewColumn columna in gdw_dataSet.Columns)
             {
@@ -101,7 +105,7 @@ namespace TP2_WF.Presentacion
             // Se agregan las frecObs al grafico
             for (int i = 0; i < arrayLimSup.Length; i++)
             {
-                string intervalo = $"[{Math.Round(arrayLimSup[i] - anchoIntervalo, 3)} - {arrayLimSup[i]}]";
+                string intervalo = $"[{Math.Round(arrayLimSup[i] - anchoIntervalo, 2)} - {Math.Round(arrayLimSup[i], 2)}]";
                 DataPoint dp = new DataPoint();
                 dp.AxisLabel = intervalo;
                 dp.YValues = new double[] { frecObs[i] };
@@ -111,51 +115,96 @@ namespace TP2_WF.Presentacion
 
             // Se ejecuta las prueba de bondad para la distribución seleccionada
             List<double> frecEsp;
+            List<double> listaChis = new List<double>();
+            List<double> listaChisAC = new List<double>();
+            List<double> listLimInf = new List<double>();
+            List<double> listFORFER = new List<double>();
+            List<double> listFER = new List<double>();
+            List<double> listFOR = new List<double>();
             double chi;
             double ks;
 
-            if (tipoDist == 0) { (frecEsp, chi, ks) = PruebasBondad.pruebasUniforme(n, frecObs); }
+            if (tipoDist == 0) 
+            { 
+                (frecEsp, chi, ks, listaChis, listaChisAC, listFORFER, listFER, listFOR) = PruebasBondad.pruebasUniforme(n, frecObs);
 
-            else if (tipoDist == 1) { (frecEsp, chi, ks) = PruebasBondad.pruebasNormal(n, media, frecObs, desvEstandard, arrayLimSup, anchoIntervalo); }
+                // Configurar etiquetas del eje X
+                chart1.ChartAreas[0].AxisX.Interval = 1;
+                chart1.ChartAreas[0].AxisX.Title = "Intervalos";
 
-            else { (frecEsp, chi, ks) = PruebasBondad.pruebasExponencial(n, lambda, frecObs, arrayLimSup, anchoIntervalo); }
+                // Configurar etiquetas del eje Y
+                chart1.ChartAreas[0].AxisY.Title = "Frecuencias Observadas";
 
+                // Se genera la tabla de frecObs
+                this.cargarTablaFrecObsUniforme(listLimSup, anchoIntervalo, frecEsp, chi, ks, listaChis, listaChisAC, listFORFER, listFER, listFOR);
 
-            // Configurar etiquetas del eje X
-            chart1.ChartAreas[0].AxisX.Interval = 1;
-            chart1.ChartAreas[0].AxisX.Title = "Intervalos";
+                // Se cargan los valores de KS y Chi
 
-            // Configurar etiquetas del eje Y
-            chart1.ChartAreas[0].AxisY.Title = "Frecuencias Observadas";
+                label3.Text = Math.Round(chi, 3).ToString();
+                label4.Text = Math.Round(ks, 3).ToString();
+            }
 
-            // Se genera la tabla de frecObs
-            this.cargarTablaFrecObs(arrayLimSup, anchoIntervalo, frecEsp, chi, ks);
+            else if (tipoDist == 1) {
 
-            // Se cargan los valores de KS y Chi
+                (frecEsp, chi, ks, listaChis, listaChisAC, listLimInf, listFORFER, listFER, listFOR) = PruebasBondad.pruebasNormal(n, media, frecObsList, desvEstandard, listLimSup, anchoIntervalo);
 
-            label3.Text = chi.ToString();
-            label4.Text = ks.ToString();
+                // Configurar etiquetas del eje X
+                chart1.ChartAreas[0].AxisX.Interval = 1;
+                chart1.ChartAreas[0].AxisX.Title = "Intervalos";
+
+                // Configurar etiquetas del eje Y
+                chart1.ChartAreas[0].AxisY.Title = "Frecuencias Observadas";
+
+                // Se genera la tabla de frecObs
+                cargarTablaFrecObs(listLimSup, listLimInf, frecEsp, frecObsList, chi, ks, listaChis, listaChisAC, listFORFER, listFER, listFOR);
+
+                // Se cargan los valores de KS y Chi
+                label3.Text = Math.Round(chi, 3).ToString();
+                label4.Text = Math.Round(ks, 3).ToString();
+            }
+
+            else 
+            { 
+                
+                (frecEsp, chi, ks, listaChis, listaChisAC, listLimInf, listFORFER, listFER, listFOR) = PruebasBondad.pruebasExponencial(n, lambda, frecObsList, listLimSup, anchoIntervalo);
+
+                // Configurar etiquetas del eje X
+                chart1.ChartAreas[0].AxisX.Interval = 1;
+                chart1.ChartAreas[0].AxisX.Title = "Intervalos";
+
+                // Configurar etiquetas del eje Y
+                chart1.ChartAreas[0].AxisY.Title = "Frecuencias Observadas";
+
+                // Se genera la tabla de frecObs
+                cargarTablaFrecObs(listLimSup, listLimInf, frecEsp, frecObsList, chi, ks, listaChis, listaChisAC, listFORFER, listFER, listFOR);
+
+                // Se cargan los valores de KS y Chi
+
+                label3.Text = Math.Round(chi,3).ToString();
+                label4.Text = Math.Round(ks,3).ToString();
+            } 
 
         }
 
-        private void cargarTablaFrecObs(decimal[] arrayLimSup, decimal anchoIntervalo, List<double> frecEsp, double chi, double ks)
+        private void cargarTablaFrecObsUniforme(List<decimal> arrayLimSup, decimal anchoIntervalo, List<double> frecEsp, double chi, double ks, List<double> listaChis, List<double> listaChisAC, List<double> listFORFER, List<double> listFER, List<double> listFOR)
         {
             DataTable dt = new DataTable();
             dt.Columns.Add("Intervalo");
             dt.Columns.Add("Frecuencia Observada");
             dt.Columns.Add("Frecuencia Esperada");
+            dt.Columns.Add("Chi actual");
+            dt.Columns.Add("Chi calculado");
+            dt.Columns.Add("Frec. Esperada relativa");
+            dt.Columns.Add("Frec. Observada relativa");
+            dt.Columns.Add("|FOR - FER|");
 
             // Agrega los numeros a la tabla y obtiene la frecuencia observada de los intervalos
-            decimal limInf;
-            calcularIntervalosTabla(arrayLimSup, anchoIntervalo, frecEsp);
+            //var newLimInf = calcularIntervalosTabla(arrayLimSup, anchoIntervalo, frecEsp);
 
-
-            for (int i = 0; i < arrayLimSup.Length; i++)
+            for (int i = 0; i < arrayLimSup.Count; i++)
             {
-
-                limInf = arrayLimSup[i] - anchoIntervalo;
-                string intervalo = $"{limInf} <= x < {arrayLimSup[i]}";
-                dt.Rows.Add(intervalo, frecObs[i], frecEsp[i]);
+                string intervalo = $"{Math.Round(arrayLimSup[i] - anchoIntervalo, 2)} <= x < {Math.Round(arrayLimSup[i], 2)}";
+                dt.Rows.Add(intervalo, frecObs[i], Math.Round(frecEsp[i], 3), Math.Round(listaChis[i], 3), Math.Round(listaChisAC[i], 3), Math.Round(listFER[i], 3), Math.Round(listFOR[i], 3), Math.Round(listFORFER[i], 3));
 
             };
 
@@ -164,101 +213,33 @@ namespace TP2_WF.Presentacion
             {
                 columna.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             }
-
-
         }
-
-        private void calcularIntervalosTabla(decimal[] arrayLimSup, decimal anchoIntervalo, List<double> frecEsp)
+        private void cargarTablaFrecObs(List<decimal> arrayLimSup, List<double> listLimInf, List<double> frecEsp, List<int> newFrecObs, double chi, double ks, List<double> listaChis, List<double> listaChisAC, List<double> listFORFER, List<double> listFER, List<double> listFOR) 
         {
-            List<decimal> arrayLimInf = new List<decimal>();
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Intervalo");
+            dt.Columns.Add("Frecuencia Observada");
+            dt.Columns.Add("Frecuencia Esperada");
+            dt.Columns.Add("Chi actual");
+            dt.Columns.Add("Chi calculado");
+            dt.Columns.Add("Frec. Esperada relativa");
+            dt.Columns.Add("Frec. Observada relativa");
+            dt.Columns.Add("|FOR - FER|");
 
-            for (int i = 0; i < arrayLimSup.Length; i++)
+            // Agrega los numeros a la tabla y obtiene la frecuencia observada de los intervalos
+            //var newLimInf = calcularIntervalosTabla(arrayLimSup, anchoIntervalo, frecEsp);
+
+            for (int i = 0; i < arrayLimSup.Count; i++)
             {
-                arrayLimInf.Add(arrayLimSup[i] - anchoIntervalo);
+                string intervalo = $"{Math.Round(listLimInf[i], 2)} <= x < {Math.Round(arrayLimSup[i], 2)}";
+                dt.Rows.Add(intervalo, newFrecObs[i], Math.Round(frecEsp[i], 3), Math.Round(listaChis[i], 3), Math.Round(listaChisAC[i], 3), Math.Round(listFER[i], 3), Math.Round(listFOR[i], 3), Math.Round(listFORFER[i], 3));
 
-            }
+            };
 
-            List<decimal> newArrayLimInf = new List<decimal>();
-            List<decimal> newArrayLimSup = new List<decimal>();
-            List<decimal> newObservedFrequency = new List<decimal>();
-
-            // Process the observed frequencies
-            for (int i = 0; i < frecObs.Length; i++)
+            gdw_frecObs.DataSource = dt;
+            foreach (DataGridViewColumn columna in gdw_frecObs.Columns)
             {
-                decimal currentLowerLimit = arrayLimInf[i];
-                decimal currentUpperLimit = arrayLimSup[i];
-                decimal currentFrequency = frecObs[i];
-
-                // Check if the current frequency is less than 5
-                if (currentFrequency < 5)
-                {
-                    // Find the index of the next interval
-                    int nextIndex = i + 1;
-                    while (nextIndex < arrayLimInf.Count && frecObs[nextIndex] < 5)
-                    {
-                        nextIndex++;
-                    }
-
-                    // Merge intervals and sum frequencies
-                    if (nextIndex < arrayLimInf.Count)
-                    {
-                        decimal nextLowerLimit = arrayLimInf[nextIndex];
-                        decimal nextUpperLimit = arrayLimSup[nextIndex];
-                        decimal nextFrequency = frecObs[nextIndex];
-
-                        // Adjust the upper limit of the current interval
-                        currentUpperLimit = Math.Min(currentUpperLimit, nextLowerLimit);
-
-                        // Sum the frequencies
-                        currentFrequency += nextFrequency;
-
-                        // Add the adjusted interval to the new arrays
-                        newObservedFrequency.Add(currentFrequency);
-                        newArrayLimInf.Add(currentLowerLimit);
-                        newArrayLimSup.Add(currentUpperLimit);
-                    }
-                    else
-                    {
-                        // If there's no next interval, just copy the current interval
-                        newObservedFrequency.Add(currentFrequency);
-                        newArrayLimInf.Add(currentLowerLimit);
-                        newArrayLimSup.Add(currentUpperLimit);
-                    }
-                }
-                else
-                {
-                    // If the frequency is not less than 5, copy the current interval
-                    newObservedFrequency.Add(currentFrequency);
-                    newArrayLimInf.Add(currentLowerLimit);
-                    newArrayLimSup.Add(currentUpperLimit);
-                }
-            }
-            // Convert the new lists to arrays if needed
-            decimal[] newArrayLimInfArray = newArrayLimInf.ToArray();
-            decimal[] newArrayLimSupArray = newArrayLimSup.ToArray();
-            decimal[] newObservedFrequencyArray = newObservedFrequency.ToArray();
-
-            // Print the new arrays
-            Console.WriteLine("New arrayLimInf:");
-            foreach (var item in newArrayLimInfArray)
-            {
-                Console.Write(item + " ");
-            }
-            Console.WriteLine("\nNew arrayLimSup:");
-            foreach (var item in newArrayLimSupArray)
-            {
-                Console.Write(item + " ");
-            }
-            Console.WriteLine("\nNew observedFrequency:");
-            foreach (var item in newObservedFrequencyArray)
-            {
-                Console.Write(item + " ");
-
-
-
-
-
-                // for (int i = 0; i < newArrayLimSup.Count; i++) { Console.WriteLine(newArrayLimInf[i] + " // " + newArrayLimSup[i] + " // " + newFrecObs[i] + " // " + newFrecEsp[i]); }
+                columna.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             }
         }
     }

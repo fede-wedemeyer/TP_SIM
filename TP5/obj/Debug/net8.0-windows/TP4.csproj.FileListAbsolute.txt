@@ -52,3 +52,23 @@ C:\Users\fedew\Desktop\TP5\obj\Debug\net8.0-windows\TP4.genruntimeconfig.cache
 C:\Users\fedew\Desktop\TP5\obj\Debug\net8.0-windows\ref\TP4.dll
 C:\Users\fedew\Desktop\TP5\obj\Debug\net8.0-windows\TP4.VentanaSegundaSim.resources
 C:\Users\fedew\Desktop\TP5\obj\Debug\net8.0-windows\TP4.VentanaRungeKutta.resources
+E:\TP SIM\TP5\bin\Debug\net8.0-windows\TP4.exe
+E:\TP SIM\TP5\bin\Debug\net8.0-windows\TP4.deps.json
+E:\TP SIM\TP5\bin\Debug\net8.0-windows\TP4.runtimeconfig.json
+E:\TP SIM\TP5\bin\Debug\net8.0-windows\TP4.dll
+E:\TP SIM\TP5\bin\Debug\net8.0-windows\TP4.pdb
+E:\TP SIM\TP5\obj\Debug\net8.0-windows\TP4.VentanaDatos.resources
+E:\TP SIM\TP5\obj\Debug\net8.0-windows\TP4.VentanaInicial.resources
+E:\TP SIM\TP5\obj\Debug\net8.0-windows\TP4.VentanaRungeKutta.resources
+E:\TP SIM\TP5\obj\Debug\net8.0-windows\TP4.VentanaSegundaSim.resources
+E:\TP SIM\TP5\obj\Debug\net8.0-windows\TP4.csproj.GenerateResource.cache
+E:\TP SIM\TP5\obj\Debug\net8.0-windows\TP4.GeneratedMSBuildEditorConfig.editorconfig
+E:\TP SIM\TP5\obj\Debug\net8.0-windows\TP4.AssemblyInfoInputs.cache
+E:\TP SIM\TP5\obj\Debug\net8.0-windows\TP4.AssemblyInfo.cs
+E:\TP SIM\TP5\obj\Debug\net8.0-windows\TP4.csproj.CoreCompileInputs.cache
+E:\TP SIM\TP5\obj\Debug\net8.0-windows\TP4.sourcelink.json
+E:\TP SIM\TP5\obj\Debug\net8.0-windows\TP4.dll
+E:\TP SIM\TP5\obj\Debug\net8.0-windows\refint\TP4.dll
+E:\TP SIM\TP5\obj\Debug\net8.0-windows\TP4.pdb
+E:\TP SIM\TP5\obj\Debug\net8.0-windows\TP4.genruntimeconfig.cache
+E:\TP SIM\TP5\obj\Debug\net8.0-windows\ref\TP4.dll
