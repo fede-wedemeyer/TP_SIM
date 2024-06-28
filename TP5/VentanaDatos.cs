@@ -15,12 +15,14 @@ namespace TP4
         DataTable dataTable;
         string[] resultados;
         VentanaInicial ventanaInicial;
-        public VentanaDatos(DataTable dataTable, string[] resultados, VentanaInicial ventanaInicial)
+        DataTable dtRk;
+        public VentanaDatos(DataTable dataTable, string[] resultados, VentanaInicial ventanaInicial, DataTable dtRk)
         {
             InitializeComponent();
             this.dataTable = dataTable;
             this.resultados = resultados;
             this.ventanaInicial = ventanaInicial;
+            this.dtRk = dtRk;
         }
 
 
@@ -59,7 +61,7 @@ namespace TP4
             dataGridView1.Columns["Fin atención 2 (Info General)"].DefaultCellStyle.ForeColor = Color.Red;
 
             dataGridView1.Columns["Fin atención (Membresía)"].DefaultCellStyle.ForeColor = Color.Red;
-            
+
         }
 
         public void mostrarResultados()
@@ -92,6 +94,14 @@ namespace TP4
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             ventanaInicial.simularConUnoMenos();
+        }
+
+        private void lblRk_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            VentanaRungeKutta ventanaRungeKutta = new VentanaRungeKutta(dtRk);
+            ventanaRungeKutta.generarDataGridView();
+            ventanaRungeKutta.ShowDialog();
+
         }
     }
 }

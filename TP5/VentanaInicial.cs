@@ -31,10 +31,10 @@ namespace TP4
                 double probabilidadMembresia = double.Parse(probMemb.Text) / 100;
 
                 Simulacion simulacion = new Simulacion();
-                DataTable dt = simulacion.simular(N, mediaPrestamoLlegada, mediaDevolucionLlegada, mediaConsultaLlegada, mediaPCLlegada, mediaInfolegada, mostrarDesde, mediaPrestamo, mediaDevolucion, mediaConsulta, mediaPC, mediaInfo, mediaMembresia, probabilidadMembresia, 3, false);
+                (DataTable dt, DataTable dtRk) = simulacion.simular(N, mediaPrestamoLlegada, mediaDevolucionLlegada, mediaConsultaLlegada, mediaPCLlegada, mediaInfolegada, mostrarDesde, mediaPrestamo, mediaDevolucion, mediaConsulta, mediaPC, mediaInfo, mediaMembresia, probabilidadMembresia, 3, false);
                 string[] resultados = simulacion.calcularVariablesEstadisticas();
 
-                VentanaDatos vd = new VentanaDatos(dt, resultados, this);
+                VentanaDatos vd = new VentanaDatos(dt, resultados, this, dtRk);
                 vd.generarDataGridView();
                 vd.mostrarResultados();
                 vd.ShowDialog();
@@ -301,10 +301,10 @@ namespace TP4
 
 
             Simulacion sim = new Simulacion();
-            DataTable dt = sim.simular(N, mediaPrestamoLlegada, mediaDevolucionLlegada, mediaConsultaLlegada, mediaPCLlegada, mediaInfolegada, mostrarDesde, mediaPrestamo, mediaDevolucion, mediaConsulta, mediaPC, mediaInfo, mediaMembresia, probabilidadMembresia, 3, true);
+            (DataTable dt, DataTable dtRk) = sim.simular(N, mediaPrestamoLlegada, mediaDevolucionLlegada, mediaConsultaLlegada, mediaPCLlegada, mediaInfolegada, mostrarDesde, mediaPrestamo, mediaDevolucion, mediaConsulta, mediaPC, mediaInfo, mediaMembresia, probabilidadMembresia, 3, true);
             string[] resultados = sim.calcularVariablesEstadisticas();
 
-            VentanaDatos vd = new VentanaDatos(dt, resultados, this);
+            VentanaDatos vd = new VentanaDatos(dt, resultados, this, dtRk);
             vd.generarDataGridView();
             vd.mostrarResultados();
             vd.ShowDialog();

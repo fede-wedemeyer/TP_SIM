@@ -70,6 +70,7 @@
             label22 = new Label();
             servRapido = new Label();
             linkLabel1 = new LinkLabel();
+            lblRk = new LinkLabel();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -485,11 +486,23 @@
             linkLabel1.Text = "¿Y si faltase un bibliotecario de devolución?";
             linkLabel1.LinkClicked += linkLabel1_LinkClicked;
             // 
+            // lblRk
+            // 
+            lblRk.AutoSize = true;
+            lblRk.Location = new Point(932, 613);
+            lblRk.Name = "lblRk";
+            lblRk.Size = new Size(116, 15);
+            lblRk.TabIndex = 26;
+            lblRk.TabStop = true;
+            lblRk.Text = "Mostrar Runge Kutta";
+            lblRk.LinkClicked += lblRk_LinkClicked;
+            // 
             // VentanaDatos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1451, 637);
+            Controls.Add(lblRk);
             Controls.Add(linkLabel1);
             Controls.Add(servRapido);
             Controls.Add(label22);
@@ -557,5 +570,6 @@
         private Label label22;
         private Label servRapido;
         private LinkLabel linkLabel1;
+        private LinkLabel lblRk;
     }
 }

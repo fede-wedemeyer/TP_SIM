@@ -18,7 +18,7 @@ namespace TP4
             v = new VectorDeEstado();
         }
 
-        public DataTable simular(int cantIteraciones, double mediaPrestamo, double mediaDevolucion, double mediaConsulta,
+        public (DataTable, DataTable) simular(int cantIteraciones, double mediaPrestamo, double mediaDevolucion, double mediaConsulta,
             double mediaPC, double mediaInfoGral, int mostrarDesde, double mediaFinPrestamo, double mediaFinDevolucion, 
             double mediaFinConsulta, double mediaFinPC, double mediaFinInfoGral, double mediaFinGestionarMembresia, double probMemb, double t, bool tipoSim)
         {
@@ -29,6 +29,7 @@ namespace TP4
             }
 
             DataTable dt = new DataTable();
+            DataTable dtRk = new DataTable();
             v.N = 0;
             v.evento = "Inicializacion";
             v.reloj = 0.00;
@@ -69,10 +70,13 @@ namespace TP4
             colaEventos.Add(llegadaInfoGral);
             colaEventos.Add(interrupcion);
 
-            if (tipoSim) { dt = crearDataTable2(); }
-            else { dt = crearDataTable(); }
+            if (tipoSim) { dt = crearDataTable2(); agregarFilaInicializacion2(0, dt); }
+            else { dt = crearDataTable(); agregarFilaInicializacion(0, dt); }
 
-            int i = 0;
+            //Agregamos la fila de inicialización a la datatable
+
+
+            int i = 1;
             bool primeraEntrada = true;
             while (i < cantIteraciones)
             {
@@ -651,6 +655,12 @@ namespace TP4
 
                     }
 
+                    if (i >= mostrarDesde && i <= mostrarDesde + 300 && primeraEntrada)
+                    {
+                        primeraEntrada = false;
+                        (v.tiempoEnfriamiento, dtRk) = rkGuardar(v.reloj);
+                    }
+
                     v.tiempoEnfriamiento = rk(v.reloj);
                     v.finEnfriamiento = v.tiempoEnfriamiento + v.reloj;
                     Evento finInterrupcion = new Evento(TipoEvento.FinInterrupcion, TipoServicio.GestionarMembresia, v.finEnfriamiento, 0);
@@ -717,6 +727,7 @@ namespace TP4
                     v.tiempoEntreInterupciones = calcularProximaInterrupcion(v.RNDProximaInterrupcion, t);
                     v.proximaInterrupcion = v.tiempoEntreInterupciones + v.reloj;
                     Evento nuevaInterrupcion = new Evento(TipoEvento.Interrupcion, TipoServicio.GestionarMembresia, v.proximaInterrupcion, t);
+                    colaEventos.Add(nuevaInterrupcion);
                 }
 
                 
@@ -784,8 +795,10 @@ namespace TP4
                 }
             }
 
-            cargarDataGrid(i, dt);
-            return dt;
+            if (tipoSim) { cargarDataGrid2(i, dt); }
+            else { cargarDataGrid(i, dt); }
+
+            return (dt, dtRk);
         }
 
         private double calcularProximaInterrupcion(double RNDProximaInterrupcion, double t)
@@ -1402,8 +1415,6 @@ namespace TP4
 
         }
 
-        public void estilizarDataTable() { }
-
         public int chequearColaMasGrande(int tamañoCola, int colaMasGrande)
         {
             if (tamañoCola > colaMasGrande) { return tamañoCola; }
@@ -1501,12 +1512,56 @@ namespace TP4
                 k3 = h * funcionDif(x + h / 2, y + h / 2 * k2);
                 k4 = h * funcionDif(x, y + h * k3);
                 ySiguiente = y + (h / 6) * (k1 + 2 * k2 + 2 * k3 + k4);
-                x += h;
-                y = ySiguiente;
+                //x += h;
+                //y = ySiguiente;
             }
 
             // t = 1 equivale 30 segundos y transforma a minutos.
             return x * 30 / 60;
+        }
+
+        (double, DataTable) rkGuardar(double horaReloj)
+        {
+            DataTable resultados = new DataTable();
+            resultados.Columns.Add("t");
+            resultados.Columns.Add("c");
+            resultados.Columns.Add("k1");
+            resultados.Columns.Add("k2");
+            resultados.Columns.Add("k3");
+            resultados.Columns.Add("k4");
+            resultados.Columns.Add("tSiguiente");
+            resultados.Columns.Add("cSiguiente");
+
+            var h = 0.1;
+
+            // inicializaciÃ³n de variables
+            var x = -h;
+            var y = 0.0;
+            double k1 = 0;
+            double k2 = 0;
+            double k3 = 0;
+            double k4 = 0;
+            var ySiguiente = horaReloj;
+
+            resultados.Rows.Add(x, y, k1, k2, k3, k4, x+h, ySiguiente);
+
+            // calcula cada fila de rk hasta que y sea negativo
+            while (y >= 0)
+            {
+                x += h;
+                y = ySiguiente;
+
+                k1 = funcionDif(x, y);
+                k2 = funcionDif(x + h / 2, y + h / 2 * k1);
+                k3 = h * funcionDif(x + h / 2, y + h / 2 * k2);
+                k4 = h * funcionDif(x, y + h * k3);
+                ySiguiente = y + (h / 6) * (k1 + 2 * k2 + 2 * k3 + k4);
+                //x += h;
+                //y = ySiguiente;
+
+                resultados.Rows.Add(x, y, k1, k2, k3, k4, x+h, ySiguiente);
+            }
+            return (x * 0.5, resultados);
         }
 
         public double funcionDif(double x, double y)
@@ -1555,6 +1610,265 @@ namespace TP4
             v.RNDFinAtencionPC = 0.0;
             v.tiempoAtencionPC = 0.0;
 
+
+        }
+
+        public void agregarFilaInicializacion(int i, DataTable dt) 
+        {
+            List<Object> fila = new List<Object>();
+
+            fila.Add(i);
+            fila.Add(v.evento);
+            fila.Add(TruncateDecimal(v.reloj, 2));
+
+            fila.Add(TruncateDecimal(v.RNDLLegadaClientePrestamos, 2));
+            fila.Add(TruncateDecimal(v.tiempoEntreLlegadasClientesPrestamos, 2));
+            fila.Add(TruncateDecimal(v.proximaLlegadaClientesPrestamos, 2));
+
+            fila.Add(TruncateDecimal(v.RNDLLegadaClienteDevolucion, 2));
+            fila.Add(TruncateDecimal(v.tiempoEntreLlegadasClientesDevolucion, 2));
+            fila.Add(TruncateDecimal(v.proximaLlegadaClientesDevolucion, 2));
+
+            fila.Add(TruncateDecimal(v.RNDLLegadaClienteConsulta, 2));
+            fila.Add(TruncateDecimal(v.tiempoEntreLlegadasClientesConsulta, 2));
+            fila.Add(TruncateDecimal(v.proximaLlegadaClientesConsulta, 2));
+
+            fila.Add(TruncateDecimal(v.RNDLLegadaClientePC, 2));
+            fila.Add(TruncateDecimal(v.tiempoEntreLlegadasClientesPC, 2));
+            fila.Add(TruncateDecimal(v.proximaLlegadaClientesPC, 2));
+
+            fila.Add(TruncateDecimal(v.RNDLLegadaClienteInfoGral, 2));
+            fila.Add(TruncateDecimal(v.tiempoEntreLlegadasClientesInfoGral, 2));
+            fila.Add(TruncateDecimal(v.proximaLlegadaClientesInfoGral, 2));
+
+            fila.Add(TruncateDecimal(v.RNDProximaInterrupcion, 2));
+            fila.Add(TruncateDecimal(v.tiempoEntreInterupciones, 2));
+            fila.Add(TruncateDecimal(v.proximaInterrupcion, 2));
+
+            fila.Add(TruncateDecimal(v.reloj, 2));
+            fila.Add(TruncateDecimal(v.tiempoEnfriamiento, 2));
+            fila.Add(TruncateDecimal(v.finEnfriamiento, 2));
+
+            fila.Add(TruncateDecimal(v.RNDFinAtencionPrestamo, 2));
+            fila.Add(TruncateDecimal(v.tiempoAtencionPrestamo, 2));
+            fila.Add(TruncateDecimal(v.finAtencionPrestamo[0], 2));
+            fila.Add(TruncateDecimal(v.finAtencionPrestamo[1], 2));
+            fila.Add(TruncateDecimal(v.finAtencionPrestamo[2], 2));
+            fila.Add(v.servidoresPrestamo[0] ? "Libre" : "Ocupado");
+            fila.Add(v.servidoresPrestamo[1] ? "Libre" : "Ocupado");
+            fila.Add(v.servidoresPrestamo[2] ? "Libre" : "Ocupado");
+            fila.Add(TruncateDecimal(v.colaPrestamos.Count, 2));
+
+            fila.Add(TruncateDecimal(v.RNDFinAtencionDevolucion, 2));
+            fila.Add(TruncateDecimal(v.tiempoAtencionDevolucion, 2));
+            fila.Add(TruncateDecimal(v.finAtencionDevolucion[0], 2));
+            fila.Add(TruncateDecimal(v.finAtencionDevolucion[1], 2));
+            fila.Add(v.servidoresDevolucion[0] ? "Libre" : "Ocupado");
+            fila.Add(v.servidoresDevolucion[1] ? "Libre" : "Ocupado");
+            fila.Add(TruncateDecimal(v.colaDevolucion.Count, 2));
+
+            fila.Add(TruncateDecimal(v.RNDFinAtencionConsulta, 2));
+            fila.Add(TruncateDecimal(v.tiempoAtencionConsulta, 2));
+            fila.Add(TruncateDecimal(v.finAtencionConsulta[0], 2));
+            fila.Add(TruncateDecimal(v.finAtencionConsulta[1], 2));
+            fila.Add(v.servidoresConsulta[0] ? "Libre" : "Ocupado");
+            fila.Add(v.servidoresConsulta[1] ? "Libre" : "Ocupado");
+            fila.Add(TruncateDecimal(v.colaConsultas.Count, 2));
+
+            fila.Add(TruncateDecimal(v.RNDFinAtencionPC, 2));
+            fila.Add(TruncateDecimal(v.tiempoAtencionPC, 2));
+            fila.Add(TruncateDecimal(v.finAtencionPC[0], 2));
+            fila.Add(TruncateDecimal(v.finAtencionPC[1], 2));
+            fila.Add(TruncateDecimal(v.finAtencionPC[2], 2));
+            fila.Add(TruncateDecimal(v.finAtencionPC[3], 2));
+            fila.Add(TruncateDecimal(v.finAtencionPC[4], 2));
+            fila.Add(TruncateDecimal(v.finAtencionPC[5], 2));
+            fila.Add(v.servidoresPC[1] ? "Libre" : "Ocupado");
+            fila.Add(v.servidoresPC[2] ? "Libre" : "Ocupado");
+            fila.Add(v.servidoresPC[3] ? "Libre" : "Ocupado");
+            fila.Add(v.servidoresPC[4] ? "Libre" : "Ocupado");
+            fila.Add(v.servidoresPC[0] ? "Libre" : "Ocupado");
+            fila.Add(v.servidoresPC[5] ? "Libre" : "Ocupado");
+            fila.Add(TruncateDecimal(v.colaPC.Count, 2));
+
+            fila.Add(TruncateDecimal(v.RNDFinAtencionInfoGeneral, 2));
+            fila.Add(TruncateDecimal(v.tiempoAtencionInfoGeneral, 2));
+            fila.Add(TruncateDecimal(v.finAtencionInfoGeneral[0], 2));
+            fila.Add(TruncateDecimal(v.finAtencionInfoGeneral[1], 2));
+            fila.Add(v.servidoresInfoGeneral[0] ? "Libre" : "Ocupado");
+            fila.Add(v.servidoresInfoGeneral[1] ? "Libre" : "Ocupado");
+            fila.Add(TruncateDecimal(v.colaInfoGeneral.Count, 2));
+
+            fila.Add(TruncateDecimal(v.RNDGestionarMembresia, 2));
+            fila.Add(v.booleanoGestiona ? "Si" : "No");
+
+            fila.Add(TruncateDecimal(v.RNDFinAtencionMembresia, 2));
+            fila.Add(TruncateDecimal(v.tiempoAtencionMembresia, 2));
+            fila.Add(TruncateDecimal(v.finAtencionMembresia, 2));
+            fila.Add(v.servidoresMembresia.estado.ToString());
+            fila.Add(TruncateDecimal(v.tiempoRestanteAtencionMembresia, 2));
+            fila.Add(TruncateDecimal(v.colaGestionarMembresia.Count, 2));
+
+            fila.Add(TruncateDecimal(v.acTiempoEsperaPrestamos, 2));
+            fila.Add(TruncateDecimal(v.atendidosPrestamos, 2));
+            fila.Add(TruncateDecimal(v.acTiempoServicioPrestamos, 2));
+
+            fila.Add(TruncateDecimal(v.acTiempoEsperaDevoluciones, 2));
+            fila.Add(TruncateDecimal(v.atendidosDevoluciones, 2));
+            fila.Add(TruncateDecimal(v.acTiempoServicioDevoluciones, 2));
+
+            fila.Add(TruncateDecimal(v.acTiempoEsperaConsultas, 2));
+            fila.Add(TruncateDecimal(v.atendidosConsultas, 2));
+            fila.Add(TruncateDecimal(v.acTiempoServicioConsultas, 2));
+
+            fila.Add(TruncateDecimal(v.acTiempoEsperaPC, 2));
+            fila.Add(TruncateDecimal(v.atendidosPC, 2));
+            fila.Add(TruncateDecimal(v.acTiempoServicioPC, 2));
+
+            fila.Add(TruncateDecimal(v.acTiempoEsperaInfoGral, 2));
+            fila.Add(TruncateDecimal(v.atendidosInfoGral, 2));
+            fila.Add(TruncateDecimal(v.acTiempoServicioInfoGral, 2));
+
+            fila.Add(TruncateDecimal(v.acTiempoEsperaGestionarMembresia, 2));
+            fila.Add(TruncateDecimal(v.atendidosGestionarMembresia, 2));
+            fila.Add(TruncateDecimal(v.acTiempoServicioGestionarMembresia, 2));
+
+            fila.Add(TruncateDecimal(v.mayorNumeroDeGenteEnCola, 2));
+
+            foreach (Estudiante e in v.estudiantes) { fila.Add((e.id, e.estado)); } //96 filas
+
+            DataRow newRow = dt.NewRow();
+            for (int j = 0; j < fila.Count && j < 106; j++) { newRow[j] = fila[j]; }
+            dt.Rows.Add(newRow);
+
+
+        }
+
+        public void agregarFilaInicializacion2(int i, DataTable dt) 
+        {
+            List<Object> fila = new List<Object>();
+
+            fila.Add(i);
+            fila.Add(v.evento);
+            fila.Add(TruncateDecimal(v.reloj, 2));
+
+            fila.Add(TruncateDecimal(v.RNDLLegadaClientePrestamos, 2));
+            fila.Add(TruncateDecimal(v.tiempoEntreLlegadasClientesPrestamos, 2));
+            fila.Add(TruncateDecimal(v.proximaLlegadaClientesPrestamos, 2));
+
+            fila.Add(TruncateDecimal(v.RNDLLegadaClienteDevolucion, 2));
+            fila.Add(TruncateDecimal(v.tiempoEntreLlegadasClientesDevolucion, 2));
+            fila.Add(TruncateDecimal(v.proximaLlegadaClientesDevolucion, 2));
+
+            fila.Add(TruncateDecimal(v.RNDLLegadaClienteConsulta, 2));
+            fila.Add(TruncateDecimal(v.tiempoEntreLlegadasClientesConsulta, 2));
+            fila.Add(TruncateDecimal(v.proximaLlegadaClientesConsulta, 2));
+
+            fila.Add(TruncateDecimal(v.RNDLLegadaClientePC, 2));
+            fila.Add(TruncateDecimal(v.tiempoEntreLlegadasClientesPC, 2));
+            fila.Add(TruncateDecimal(v.proximaLlegadaClientesPC, 2));
+
+            fila.Add(TruncateDecimal(v.RNDLLegadaClienteInfoGral, 2));
+            fila.Add(TruncateDecimal(v.tiempoEntreLlegadasClientesInfoGral, 2));
+            fila.Add(TruncateDecimal(v.proximaLlegadaClientesInfoGral, 2));
+
+            fila.Add(TruncateDecimal(v.RNDProximaInterrupcion, 2));
+            fila.Add(TruncateDecimal(v.tiempoEntreInterupciones, 2));
+            fila.Add(TruncateDecimal(v.proximaInterrupcion, 2));
+
+            fila.Add(TruncateDecimal(v.reloj, 2));
+            fila.Add(TruncateDecimal(v.tiempoEnfriamiento, 2));
+            fila.Add(TruncateDecimal(v.finEnfriamiento, 2));
+
+            fila.Add(TruncateDecimal(v.RNDFinAtencionPrestamo, 2));
+            fila.Add(TruncateDecimal(v.tiempoAtencionPrestamo, 2));
+            fila.Add(TruncateDecimal(v.finAtencionPrestamo[0], 2));
+            fila.Add(TruncateDecimal(v.finAtencionPrestamo[1], 2));
+            fila.Add(TruncateDecimal(v.finAtencionPrestamo[2], 2));
+            fila.Add(v.servidoresPrestamo[0] ? "Libre" : "Ocupado");
+            fila.Add(v.servidoresPrestamo[1] ? "Libre" : "Ocupado");
+            fila.Add(v.servidoresPrestamo[2] ? "Libre" : "Ocupado");
+            fila.Add(TruncateDecimal(v.colaPrestamos.Count, 2));
+
+            fila.Add(TruncateDecimal(v.RNDFinAtencionDevolucion, 2));
+            fila.Add(TruncateDecimal(v.tiempoAtencionDevolucion, 2));
+            fila.Add(TruncateDecimal(v.finAtencionDevolucion[0], 2));
+            fila.Add(v.servidoresDevolucion[0] ? "Libre" : "Ocupado");
+            fila.Add(TruncateDecimal(v.colaDevolucion.Count, 2));
+
+            fila.Add(TruncateDecimal(v.RNDFinAtencionConsulta, 2));
+            fila.Add(TruncateDecimal(v.tiempoAtencionConsulta, 2));
+            fila.Add(TruncateDecimal(v.finAtencionConsulta[0], 2));
+            fila.Add(TruncateDecimal(v.finAtencionConsulta[1], 2));
+            fila.Add(v.servidoresConsulta[0] ? "Libre" : "Ocupado");
+            fila.Add(v.servidoresConsulta[1] ? "Libre" : "Ocupado");
+            fila.Add(TruncateDecimal(v.colaConsultas.Count, 2));
+
+            fila.Add(TruncateDecimal(v.RNDFinAtencionPC, 2));
+            fila.Add(TruncateDecimal(v.tiempoAtencionPC, 2));
+            fila.Add(TruncateDecimal(v.finAtencionPC[0], 2));
+            fila.Add(TruncateDecimal(v.finAtencionPC[1], 2));
+            fila.Add(TruncateDecimal(v.finAtencionPC[2], 2));
+            fila.Add(TruncateDecimal(v.finAtencionPC[3], 2));
+            fila.Add(TruncateDecimal(v.finAtencionPC[4], 2));
+            fila.Add(TruncateDecimal(v.finAtencionPC[5], 2));
+            fila.Add(v.servidoresPC[1] ? "Libre" : "Ocupado");
+            fila.Add(v.servidoresPC[2] ? "Libre" : "Ocupado");
+            fila.Add(v.servidoresPC[3] ? "Libre" : "Ocupado");
+            fila.Add(v.servidoresPC[4] ? "Libre" : "Ocupado");
+            fila.Add(v.servidoresPC[0] ? "Libre" : "Ocupado");
+            fila.Add(v.servidoresPC[5] ? "Libre" : "Ocupado");
+            fila.Add(TruncateDecimal(v.colaPC.Count, 2));
+
+            fila.Add(TruncateDecimal(v.RNDFinAtencionInfoGeneral, 2));
+            fila.Add(TruncateDecimal(v.tiempoAtencionInfoGeneral, 2));
+            fila.Add(TruncateDecimal(v.finAtencionInfoGeneral[0], 2));
+            fila.Add(TruncateDecimal(v.finAtencionInfoGeneral[1], 2));
+            fila.Add(v.servidoresInfoGeneral[0] ? "Libre" : "Ocupado");
+            fila.Add(v.servidoresInfoGeneral[1] ? "Libre" : "Ocupado");
+            fila.Add(TruncateDecimal(v.colaInfoGeneral.Count, 2));
+
+            fila.Add(TruncateDecimal(v.RNDGestionarMembresia, 2));
+            fila.Add(v.booleanoGestiona ? "Si" : "No");
+
+            fila.Add(TruncateDecimal(v.RNDFinAtencionMembresia, 2));
+            fila.Add(TruncateDecimal(v.tiempoAtencionMembresia, 2));
+            fila.Add(TruncateDecimal(v.finAtencionMembresia, 2));
+            fila.Add(v.servidoresMembresia.estado.ToString());
+            fila.Add(TruncateDecimal(v.tiempoRestanteAtencionMembresia, 2));
+            fila.Add(TruncateDecimal(v.colaGestionarMembresia.Count, 2));
+
+            fila.Add(TruncateDecimal(v.acTiempoEsperaPrestamos, 2));
+            fila.Add(TruncateDecimal(v.atendidosPrestamos, 2));
+            fila.Add(TruncateDecimal(v.acTiempoServicioPrestamos, 2));
+
+            fila.Add(TruncateDecimal(v.acTiempoEsperaDevoluciones, 2));
+            fila.Add(TruncateDecimal(v.atendidosDevoluciones, 2));
+            fila.Add(TruncateDecimal(v.acTiempoServicioDevoluciones, 2));
+
+            fila.Add(TruncateDecimal(v.acTiempoEsperaConsultas, 2));
+            fila.Add(TruncateDecimal(v.atendidosConsultas, 2));
+            fila.Add(TruncateDecimal(v.acTiempoServicioConsultas, 2));
+
+            fila.Add(TruncateDecimal(v.acTiempoEsperaPC, 2));
+            fila.Add(TruncateDecimal(v.atendidosPC, 2));
+            fila.Add(TruncateDecimal(v.acTiempoServicioPC, 2));
+
+            fila.Add(TruncateDecimal(v.acTiempoEsperaInfoGral, 2));
+            fila.Add(TruncateDecimal(v.atendidosInfoGral, 2));
+            fila.Add(TruncateDecimal(v.acTiempoServicioInfoGral, 2));
+
+            fila.Add(TruncateDecimal(v.acTiempoEsperaGestionarMembresia, 2));
+            fila.Add(TruncateDecimal(v.atendidosGestionarMembresia, 2));
+            fila.Add(TruncateDecimal(v.acTiempoServicioGestionarMembresia, 2));
+
+            fila.Add(TruncateDecimal(v.mayorNumeroDeGenteEnCola, 2));
+
+            foreach (Estudiante e in v.estudiantes) { fila.Add((e.id, e.estado)); } //96 filas
+
+            DataRow newRow = dt.NewRow();
+            for (int j = 0; j < fila.Count && j < 106; j++) { newRow[j] = fila[j]; }
+            dt.Rows.Add(newRow);
 
         }
 
