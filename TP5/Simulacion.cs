@@ -126,7 +126,7 @@ namespace TP4
                             v.tiempoAtencionPrestamo = tiempoAtencion;
 
                             // generamos estudiante y lo añadimos al vector de estado
-                            var estudiante = new Estudiante(idClientes, $"Atendido Prestamos ({servidor})" , v.reloj, TipoServicio.Prestamos);
+                            var estudiante = new Estudiante(idClientes, $"Atendido Prestamos ({servidor + 1})" , v.reloj, TipoServicio.Prestamos);
                             idClientes++;
                             estudiante.servidor = servidor;
                             estudiante.tiempoFinAtencion = tiempoFinAtencion;
@@ -176,7 +176,7 @@ namespace TP4
                             v.tiempoAtencionDevolucion = tiempoAtencion;
 
                             // generamos estudiante y lo añadimos al vector de estado
-                            var estudiante = new Estudiante(idClientes, $"Atendido Devolucion ({servidor})", v.reloj, TipoServicio.Devolucion);
+                            var estudiante = new Estudiante(idClientes, $"Atendido Devolucion ({servidor + 1})", v.reloj, TipoServicio.Devolucion);
                             idClientes++;
                             estudiante.servidor = servidor;
                             estudiante.tiempoFinAtencion = tiempoFinAtencion;
@@ -222,7 +222,7 @@ namespace TP4
                             v.tiempoAtencionConsulta = tiempoAtencion;
 
                             // generamos estudiante y lo aÃ±adimos al vector de estado
-                            var estudiante = new Estudiante(idClientes, $"Atendido Consulta ({servidor})", v.reloj, TipoServicio.Consulta);
+                            var estudiante = new Estudiante(idClientes, $"Atendido Consulta ({servidor + 1})", v.reloj, TipoServicio.Consulta);
                             idClientes++;
                             estudiante.servidor = servidor;
                             estudiante.tiempoFinAtencion = tiempoFinAtencion;
@@ -269,7 +269,7 @@ namespace TP4
                             v.tiempoAtencionPC = tiempoAtencion;
 
                             // generamos estudiante y lo aÃ±adimos al vector de estado
-                            var estudiante = new Estudiante(idClientes, $"Atendido PCs ({servidor})", v.reloj, TipoServicio.PC);;
+                            var estudiante = new Estudiante(idClientes, $"Atendido PCs ({servidor + 1})", v.reloj, TipoServicio.PC);;
                             idClientes++;
                             estudiante.servidor = servidor;
                             estudiante.tiempoFinAtencion = tiempoFinAtencion;
@@ -315,7 +315,7 @@ namespace TP4
                             v.tiempoAtencionInfoGeneral = tiempoAtencion;
 
                             // generamos estudiante y lo aÃ±adimos al vector de estado
-                            var estudiante = new Estudiante(idClientes, $"Atendido InfoGral ({servidor})", v.reloj, TipoServicio.InfoGral);
+                            var estudiante = new Estudiante(idClientes, $"Atendido InfoGral ({servidor + 1})", v.reloj, TipoServicio.InfoGral);
                             idClientes++;
                             estudiante.servidor = servidor;
                             estudiante.tiempoFinAtencion = tiempoFinAtencion;
@@ -367,7 +367,7 @@ namespace TP4
                             v.RNDFinAtencionPrestamo = random;
                             v.tiempoAtencionPrestamo = tiempoAtencion;
 
-                            estudianteNuevo.estado = $"Atendido Prestamos {servidor}";
+                            estudianteNuevo.estado = $"Atendido Prestamos {servidor + 1}";
                             estudianteNuevo.tiempoFinAtencion = tiempoFinAtencion;
                             estudianteNuevo.servidor = servidor;
                             estudianteNuevo.horaInicioAtencion = v.reloj;
@@ -402,7 +402,7 @@ namespace TP4
                             v.RNDFinAtencionDevolucion = random;
                             v.tiempoAtencionDevolucion = tiempoAtencion;
 
-                            estudianteNuevo.estado = $"Atendido Devolucion {servidor}";
+                            estudianteNuevo.estado = $"Atendido Devolucion {servidor + 1}";
                             estudianteNuevo.tiempoFinAtencion = tiempoFinAtencion;
                             estudianteNuevo.horaInicioAtencion = v.reloj;
                             estudianteNuevo.servidor = servidor;
@@ -441,7 +441,7 @@ namespace TP4
                             v.RNDFinAtencionConsulta = random;
                             v.tiempoAtencionConsulta = tiempoAtencion;
 
-                            estudianteNuevo.estado = $"Atendido Consulta {servidor}";
+                            estudianteNuevo.estado = $"Atendido Consulta {servidor + 1}";
                             estudianteNuevo.tiempoFinAtencion = tiempoFinAtencion;
                             estudianteNuevo.horaInicioAtencion = v.reloj;
                             estudianteNuevo.servidor = servidor;
@@ -479,7 +479,7 @@ namespace TP4
                             v.RNDFinAtencionPC = random;
                             v.tiempoAtencionPC = tiempoAtencion;
 
-                            estudianteNuevo.estado = $"Atendido PC {servidor}";
+                            estudianteNuevo.estado = $"Atendido PC {servidor + 1}";
                             estudianteNuevo.tiempoFinAtencion = tiempoFinAtencion;
                             estudianteNuevo.horaInicioAtencion = v.reloj;
                             estudianteNuevo.servidor = servidor;
@@ -517,7 +517,7 @@ namespace TP4
                             v.RNDFinAtencionInfoGeneral = random;
                             v.tiempoAtencionInfoGeneral = tiempoAtencion;
 
-                            estudianteNuevo.estado = $"Atendido Info General ({servidor})";
+                            estudianteNuevo.estado = $"Atendido Info General ({servidor + 1})";
                             estudianteNuevo.tiempoFinAtencion = tiempoFinAtencion;
                             estudianteNuevo.horaInicioAtencion = v.reloj;
                             estudianteNuevo.servidor = servidor;
@@ -934,11 +934,11 @@ namespace TP4
             fila.Add(TruncateDecimal(v.finAtencionPC[3], 2));
             fila.Add(TruncateDecimal(v.finAtencionPC[4], 2));
             fila.Add(TruncateDecimal(v.finAtencionPC[5], 2));
+            fila.Add(v.servidoresPC[0] ? "Libre" : "Ocupado");
             fila.Add(v.servidoresPC[1] ? "Libre" : "Ocupado");
             fila.Add(v.servidoresPC[2] ? "Libre" : "Ocupado");
             fila.Add(v.servidoresPC[3] ? "Libre" : "Ocupado");
             fila.Add(v.servidoresPC[4] ? "Libre" : "Ocupado");
-            fila.Add(v.servidoresPC[0] ? "Libre" : "Ocupado");
             fila.Add(v.servidoresPC[5] ? "Libre" : "Ocupado");
             fila.Add(TruncateDecimal(v.colaPC.Count, 2));
 
@@ -1063,11 +1063,11 @@ namespace TP4
             fila.Add(TruncateDecimal(v.finAtencionPC[3], 2));
             fila.Add(TruncateDecimal(v.finAtencionPC[4], 2));
             fila.Add(TruncateDecimal(v.finAtencionPC[5], 2));
+            fila.Add(v.servidoresPC[0] ? "Libre" : "Ocupado");
             fila.Add(v.servidoresPC[1] ? "Libre" : "Ocupado");
             fila.Add(v.servidoresPC[2] ? "Libre" : "Ocupado");
             fila.Add(v.servidoresPC[3] ? "Libre" : "Ocupado");
             fila.Add(v.servidoresPC[4] ? "Libre" : "Ocupado");
-            fila.Add(v.servidoresPC[0] ? "Libre" : "Ocupado");
             fila.Add(v.servidoresPC[5] ? "Libre" : "Ocupado");
             fila.Add(TruncateDecimal(v.colaPC.Count, 2));
 
@@ -1256,16 +1256,16 @@ namespace TP4
             dt.Columns.Add("Acumulador tiempo ocupado (Gestionar membresía)");
 
             dt.Columns.Add("Mayor numero de gente en cola");
-            dt.Columns.Add("Estudiante 1 (ID, Estado)");
-            dt.Columns.Add("Estudiante 2 (ID, Estado)");
-            dt.Columns.Add("Estudiante 3 (ID, Estado)");
-            dt.Columns.Add("Estudiante 4 (ID, Estado)");
-            dt.Columns.Add("Estudiante 5 (ID, Estado)");
-            dt.Columns.Add("Estudiante 6 (ID, Estado)");
-            dt.Columns.Add("Estudiante 7 (ID, Estado)");
-            dt.Columns.Add("Estudiante 8 (ID, Estado)");
-            dt.Columns.Add("Estudiante 9 (ID, Estado)");
-            dt.Columns.Add("Estudiante N (ID, Estado)");
+            dt.Columns.Add("Estudiante 1");
+            dt.Columns.Add("Estudiante 2");
+            dt.Columns.Add("Estudiante 3");
+            dt.Columns.Add("Estudiante 4");
+            dt.Columns.Add("Estudiante 5");
+            dt.Columns.Add("Estudiante 6");
+            dt.Columns.Add("Estudiante 7");
+            dt.Columns.Add("Estudiante 8");
+            dt.Columns.Add("Estudiante 9");
+            dt.Columns.Add("Estudiante N");
 
             return dt;
         }
@@ -1389,16 +1389,16 @@ namespace TP4
             dt.Columns.Add("Acumulador tiempo ocupado (Gestionar membresía)");
 
             dt.Columns.Add("Mayor numero de gente en cola");
-            dt.Columns.Add("Estudiante 1 (ID, Estado)");
-            dt.Columns.Add("Estudiante 2 (ID, Estado)");
-            dt.Columns.Add("Estudiante 3 (ID, Estado)");
-            dt.Columns.Add("Estudiante 4 (ID, Estado)");
-            dt.Columns.Add("Estudiante 5 (ID, Estado)");
-            dt.Columns.Add("Estudiante 6 (ID, Estado)");
-            dt.Columns.Add("Estudiante 7 (ID, Estado)");
-            dt.Columns.Add("Estudiante 8 (ID, Estado)");
-            dt.Columns.Add("Estudiante 9 (ID, Estado)");
-            dt.Columns.Add("Estudiante N (ID, Estado)");
+            dt.Columns.Add("Estudiante 1");
+            dt.Columns.Add("Estudiante 2");
+            dt.Columns.Add("Estudiante 3");
+            dt.Columns.Add("Estudiante 4");
+            dt.Columns.Add("Estudiante 5");
+            dt.Columns.Add("Estudiante 6");
+            dt.Columns.Add("Estudiante 7");
+            dt.Columns.Add("Estudiante 8");
+            dt.Columns.Add("Estudiante 9");
+            dt.Columns.Add("Estudiante N");
 
             return dt;
         }
@@ -1874,8 +1874,5 @@ namespace TP4
 
 
     }
-
-
-
 
 }

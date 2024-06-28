@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\TP SIM\\TP5\\TP4.csproj",
+      "projectUniqueName": "C:\\Users\\fedew\\Desktop\\TP5\\TP4.csproj",
       "projectName": "TP4",
-      "projectPath": "E:\\TP SIM\\TP5\\TP4.csproj",
+      "projectPath": "C:\\Users\\fedew\\Desktop\\TP5\\TP4.csproj",
       "packagesPath": "C:\\Users\\fedew\\.nuget\\packages\\",
-      "outputPath": "E:\\TP SIM\\TP5\\obj\\",
+      "outputPath": "C:\\Users\\fedew\\Desktop\\TP5\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\fedew\\AppData\\Roaming\\NuGet\\NuGet.Config",
