@@ -62,7 +62,6 @@ E:\TP SIM\TP2\TP2_WF\obj\Debug\TP2_WF.PantallaPrincipalGenerador.resources
 E:\TP SIM\TP2\TP2_WF\obj\Debug\TP2_WF.Properties.Resources.resources
 E:\TP SIM\TP2\TP2_WF\obj\Debug\TP2_WF.csproj.GenerateResource.cache
 E:\TP SIM\TP2\TP2_WF\obj\Debug\TP2_WF.csproj.CoreCompileInputs.cache
-E:\TP SIM\TP2\TP2_WF\obj\Debug\TP2_WF.csproj.CopyComplete
 E:\TP SIM\TP2\TP2_WF\obj\Debug\TP2_WF.exe
 E:\TP SIM\TP2\TP2_WF\obj\Debug\TP2_WF.pdb
 C:\Users\arras\Downloads\TP_SIM-main\TP2\TP2_WF\bin\Debug\TP2_WF.exe.config
@@ -97,3 +96,4 @@ C:\Users\fedew\Desktop\TP2\TP2_WF\obj\Debug\TP2_WF.csproj.CoreCompileInputs.cach
 C:\Users\fedew\Desktop\TP2\TP2_WF\obj\Debug\TP2_WF.exe
 C:\Users\fedew\Desktop\TP2\TP2_WF\obj\Debug\TP2_WF.pdb
 C:\Users\fedew\Desktop\TP2\TP2_WF\obj\Debug\TP2_WF.csproj.Up2Date
+E:\TP SIM\TP2\TP2_WF\obj\Debug\TP2_WF.csproj.Up2Date
